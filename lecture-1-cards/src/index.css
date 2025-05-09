@@ -1,0 +1,11 @@
+.card-img-top{
+    height: 200px;
+    aspect-ratio: 1;
+}
+.card-img-top{
+     overflow: auto !important;
+     transition: .3s all linear;
+}
+.card:hover img{
+    transform: scale(1.1);
+}
