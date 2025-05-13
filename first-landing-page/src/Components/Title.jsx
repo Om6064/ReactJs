@@ -6,11 +6,11 @@ const Title = (props) => {
       
 
             <div className='container py-5'>
-                <div className="d-flex justify-content-between">
-                    <div className="col-6">
+                <div className="row justify-content-between align-items-center">
+                    <div className="col-md-6">
                         {props.left}
                     </div>
-                    <div className="col-6">
+                    <div className="col-md-6">
                         {props.right}
                     </div>
                 </div>

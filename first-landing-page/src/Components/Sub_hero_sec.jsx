@@ -22,7 +22,7 @@ const Sub_hero_sec = () => {
   return (
     <section>
         <div className="container">
-          <div className="d-flex justify-content-between gy-3">
+          <div className="row justify-content-between gy-3">
             {CardInfo.map((obj) => {
               return <Card img = {obj.img} badge = {obj.badge} des = {obj.des}></Card>
             })}
@@ -32,4 +32,4 @@ const Sub_hero_sec = () => {
   )
 }
 
-export default Sub_hero_sec
+export default Sub_hero_sec;
