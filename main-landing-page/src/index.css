@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+*{
+  list-style: none;
+   font-family: "DM Sans", sans-serif;
+}
+.bg-button{
+  background-color: #5d87ff;
+}
+.bg-img{
+  background-image: url('https://zoyothemes.com/tailwind/evea/assets/images/home/bg-1.png');
+}
+.outline{
+  outline: none;
+  border: none;
+}
+.p-t-200{
+  padding-top: 200px;
+}
+.font-60{
+  font-size: 60px;
+}
+.text-main{
+  color: #5d87ff;
+}
+.font-36{
+  font-size: 36px;
+}
+.bor-red{
+  border-radius: 30% 70% 33% 67% / 52% 30% 70% 48% ;
+  background-color: #5d87ff;
+  height: 80px;
+  width: 80px;
+}
+.bg-color{
+  background-color: #eef3ff;
+}
+.height-650{
+  height: 650px;
+}
+.icons{
+  height: 48px;
+  width: 48px;
+}
+.wapper-style{
+  background-image: url('https://zoyothemes.com/tailwind/evea/assets/images/home/parallax.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  padding: 6rem 0 4rem 0;
+}
+.wapper-style::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6); 
+  z-index: 0;
+}
+.outline-white{
+  border: white !important;
+  outline: white !important;
+}
+.green{
+  background-color: #f0fdf4 !important;
+}
+.red{
+  background-color: #fef2f2;
+}
+.service-icon{
+  height: 80px;
+  width: 80px;
+}
+.bg-trust{
+  background-color: #f9fafb;
+}
+.h-10 {
+    height: 2.5rem !important;
+}

@@ -7,6 +7,7 @@ import Left_side3 from "./Components/Left_side3"
 import Right_side from "./Components/Right_side"
 import Right_side2 from "./Components/Right_side2"
 import Right_side3 from "./Components/Right_side3"
+import Slider from "./Components/Slider"
 import Sub_hero_sec from "./Components/Sub_hero_sec"
 import Title from "./Components/Title"
 
@@ -29,6 +30,7 @@ const App = () => {
       <Title left={<Left_side2 />} right={<Right_side2 />} />
       <Title left={<Left_side3 />} right={<Right_side3 />} />
       <Faq q1 = {q1}/>
+      <Slider />
     </div>
   )
 }

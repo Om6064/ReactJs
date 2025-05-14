@@ -89,7 +89,7 @@ const Faq = (props) => {
 
   // If not built section, show general section
   return (
-    <section>
+    <section className="bg-color p-5">
       <div className="container">
         <h2 className="text-center fs-1">FAQ</h2>
         <p className="mb-5 pb-5 text-center fs-2">Your Question Answer Here</p>
@@ -97,14 +97,14 @@ const Faq = (props) => {
         <div className="d-flex">
           <div className="col-2">
             <ul className="text-decoration-none list-unstyled">
-              <li className="hover active">General</li>
-              <li className="hover" onClick={() => setShowBuiltQuestions(true)}>
+              <li className="hover active  mt-3">General</li>
+              <li className="hover mt-3" onClick={() => setShowBuiltQuestions(true)}>
                 Build
               </li>
-              <li className="hover">Promote</li>
-              <li className="hover">Manage</li>
-              <li className="hover">Integration</li>
-              <li className="hover">Legal</li>
+              <li className="hover mt-3">Promote</li>
+              <li className="hover mt-3">Manage</li>
+              <li className="hover mt-3">Integration</li>
+              <li className="hover mt-3">Legal</li>
             </ul>
           </div>
           <div className="col-10">
