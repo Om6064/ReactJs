@@ -3,7 +3,7 @@ import React from 'react'
 const Card2 = (props) => {
 
     return (
-         <div className="col-4 mb-4">
+         <div className="col-md-6 col-xl-4 mb-4">
             <div className="card" style={{ width: '100%' }}>
                 <img src={props.img} className="card-img-top" alt={props.title} />
                 <div className="card-body">

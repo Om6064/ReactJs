@@ -2,7 +2,7 @@ import React from 'react'
 
 const Card = (props) => {
   return (
-     <div className="col-4 mb-4">
+     <div className="col-md-6 col-xl-4 mb-4">
             <div className="card" style={{ width: '100%' }}>
                 <div className="card-body">
                     <h5 className="card-title">{props.title}</h5>
