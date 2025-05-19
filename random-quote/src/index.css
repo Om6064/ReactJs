@@ -1,0 +1,89 @@
+.quotes-wrapper {
+    background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quote-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffffcc;
+    border-radius: 15px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #333;
+}
+
+.blockquote-footer cite {
+    font-style: normal;
+    color: #555;
+}
+.quote-card {
+    min-height: 220px;
+    background-color: #ffffffcc;
+    border-radius: 15px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    --webkit-line-clamp: 4;
+    --webkit-box-orient: vertical;
+}
+.quote-list {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 5px;
+    width: 100%;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+
+/* Optional scrollbar styling */
+.quote-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.quote-list::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 4px;
+}
+
+.quote-list::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+.btn-my {
+    background-color: #675aff;
+    transition: .3s all linear;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 14px;
+    border: none !important;
+    color: white;
+    box-shadow: 4px 4px black !important;
+}
+
+.btn-my:active {
+    transform: translate(0) !important;
+    box-shadow: none !important;
+}
