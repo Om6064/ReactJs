@@ -1,5 +1,5 @@
-import GithubApi from "./component/GithubApi"
-
+import React from 'react'
+import GithubApi from './components/GithubApi'
 
 const App = () => {
   return (
