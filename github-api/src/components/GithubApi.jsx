@@ -39,6 +39,7 @@ const GithubApi = () => {
 
         const fetchData = async () => {
             const res = await fetch(`https://api.github.com/users/${query}`);
+            console.log(res);
             if (!res.ok) {
                 setUserData({});
                 setError("❌ GitHub user not found. Please try again.");
@@ -71,13 +72,22 @@ const GithubApi = () => {
                         type="button"
                         className="bg-pink-500 hover:bg-pink-600 text-white px-5 py-3 rounded-xl font-semibold transition-all"
                         onClick={() => {
-                            if (userName.trim() === "") {
+                            const trimmedName = userName.trim();
+
+                         
+                            if (trimmedName === "") {
                                 setError("⚠️ Please enter a GitHub username.");
                                 return;
                             }
 
-                            setQuery(userName);
-                            setUserName("");
+                          
+                            if (trimmedName.toLowerCase() === query.toLowerCase()) {
+                                setError("⚠️ This user is already shown.");
+                                return;
+                            }
+
+                            setQuery(trimmedName);   
+                            setUserName("");           
                             setError("");
 
                         }}
