@@ -88,7 +88,7 @@ const GithubApi = () => {
                             setQuery(trimmedName);   
                             setUserName("");           
                             setError("");
-
+                            
                         }}
                     >
                         Search

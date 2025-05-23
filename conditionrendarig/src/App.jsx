@@ -25,9 +25,9 @@ const App = () => {
                 <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
               </div>
               <button type="submit" className="btn btn-primary">Submit</button>
-                   <p className="pt-3">Already Have An Account ? <span className="text-primary" onClick={() => {
+                   <p className="pt-3">Not Have An Account ? <span className="text-primary" onClick={() => {
                 setIsLogin(!isLogin)
-              }}>Log In</span></p>
+              }}>Sign In</span></p>
             </form>
 
 
