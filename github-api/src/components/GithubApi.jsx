@@ -73,8 +73,7 @@ const GithubApi = () => {
                         className="bg-pink-500 hover:bg-pink-600 text-white px-5 py-3 rounded-xl font-semibold transition-all"
                         onClick={() => {
                             const trimmedName = userName.trim();
-
-                         
+                            
                             if (trimmedName === "") {
                                 setError("⚠️ Please enter a GitHub username.");
                                 return;
