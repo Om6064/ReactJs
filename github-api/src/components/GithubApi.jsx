@@ -34,6 +34,7 @@ const GithubApi = () => {
 
         const fetchData = async () => {
             const res = await fetch(`https://api.github.com/users/${query}`);
+            console.log(res);
             if (!res.ok) {
                 setUserData({});
                 setError("❌ GitHub user not found. Please try again.");
@@ -134,7 +135,7 @@ const GithubApi = () => {
                                                 <i class="fa-solid fa-location-dot"></i>
                                             </div>
                                             <div>
-                                                {userData.location}
+                                                {!userData.location ? "Not Available": userData.location }
                                             </div>
                                         </div>
                                         <div className="flex gap-3">
@@ -142,7 +143,7 @@ const GithubApi = () => {
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </div>
                                             <div>
-                                                {userData.updated_at}
+                                                {!userData.updated_at ? "Not Available": userData.updated_at }
                                             </div>
                                         </div>
                                     </div>
