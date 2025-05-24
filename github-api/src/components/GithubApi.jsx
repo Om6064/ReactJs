@@ -43,6 +43,8 @@ const GithubApi = () => {
             const data = await res.json();
             setUserData(data);
             setError('');
+            console.log(data);
+            
         };
 
         fetchData();
@@ -74,8 +76,8 @@ const GithubApi = () => {
                                 setError("⚠️ This user is already shown.");
                                 return;
                             }
-                            setQuery(trimmedName);   
-                            setUserName("");           
+                            setQuery(trimmedName);
+                            setUserName("");
                             setError("");
                         }}
                     >
@@ -124,6 +126,24 @@ const GithubApi = () => {
                                         <div>
                                             <span className="block text-lg font-bold text-[#36d399]">{userData.public_repos}</span>
                                             Repos
+                                        </div>
+                                    </div>
+                                    <div className="flex pt-4 flex-col sm:flex-row justify-around items-center gap-4 mt-6">
+                                        <div className="flex gap-3">
+                                            <div>
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div>
+                                                {userData.location}
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-3">
+                                            <div>
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </div>
+                                            <div>
+                                                {userData.updated_at}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
