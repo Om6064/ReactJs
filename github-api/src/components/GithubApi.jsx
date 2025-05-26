@@ -112,6 +112,16 @@ const GithubApi = () => {
                                             ? <p className="mt-2 text-[#d3dce6] text-sm italic">"{userData.bio}"</p>
                                             : ""
                                     }
+                                    {
+                                        userData.email
+                                            ? <p className="mt-4 text-[#d3dce6] text-sm italic">"Rich Me :  {userData.email}"</p>
+                                            : ""
+                                    }
+                                    {
+                                        userData.company
+                                            ? <p className="mt-4 text-[#d3dce6] text-sm italic">"Worked At :  {userData.company}"</p>
+                                            : ""
+                                    }
 
                                     <hr className="my-4 border-[#374151]" />
 
