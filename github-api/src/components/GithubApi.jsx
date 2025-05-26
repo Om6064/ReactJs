@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import domtoimage from 'dom-to-image';
 
 const GithubApi = () => {
@@ -119,7 +119,7 @@ const GithubApi = () => {
                                     }
                                     {
                                         userData.company
-                                            ? <p className="mt-4 text-[#d3dce6] text-sm italic">"Worked At :  {userData.company}"</p>
+                                            ? <p className="mt-4 text-[#d3dce6] text-sm italic">"Working At :  {userData.company}"</p>
                                             : ""
                                     }
 
