@@ -1,33 +1,49 @@
-import { useState } from "react"
-import Table from "./Table"
+import { useEffect, useState } from "react";
+import Table from "./Table";
 
 const Todo = () => {
-  const [text, setText] = useState("")
-  const [tasks, setTasks] = useState([])
+  const [text, setText] = useState("");
+  const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState("all");
+  const [filteredTasks, setFilteredTasks] = useState([]);
 
   const addTask = () => {
-    if (text.trim() === "") return
+    if (text.trim() === "") return;
 
     const newTask = {
       id: Date.now(),
       isComplete: false,
-      taskName: text
-    }
+      taskName: text,
+    };
 
-    setTasks([...tasks, newTask])
-    setText("")
-  }
+    setTasks([...tasks, newTask]);
+    setText("");
+  };
 
   const markAsComplete = (id) => {
-    const updatedTasks = tasks.map(task =>
+    const updatedTasks = tasks.map((task) =>
       task.id === id ? { ...task, isComplete: true } : task
-    )
-    setTasks(updatedTasks)
-  }
+    );
+    setTasks(updatedTasks);
+  };
+
+  useEffect(() => {
+    let updatedTasks = [];
+
+    if (filter === "all") {
+      updatedTasks = tasks;
+    } else if (filter === "pending") {
+      updatedTasks = tasks.filter((task) => !task.isComplete);
+    } else if (filter === "completed") {
+      updatedTasks = tasks.filter((task) => task.isComplete);
+    }
+
+    setFilteredTasks(updatedTasks);
+  }, [tasks, filter]);
 
   return (
-   <>
-       <h1 className="text-center font-semibold my-5 text-3xl">Todo List ☑️</h1>
+    <>
+      <h1 className="text-center font-semibold my-5 text-3xl">Todo List ☑️</h1>
       <div className="container mx-auto">
         <div className="w-6/12 mx-auto">
           <form className="flex items-center max-w-lg mx-auto">
@@ -51,10 +67,49 @@ const Todo = () => {
         </div>
 
         {tasks.length === 0 ? (
-          <h2 className="text-center text-2xl text-red-500 mt-10">No tasks found 😕</h2>
+          <h2 className="text-center text-2xl text-red-500 mt-10">
+            No tasks found 😕
+          </h2>
         ) : (
-          <div className="mt-10 overflow-x-auto">
-            <table className="w-full md:w-8/12 lg:w-6/12 mx-auto text-sm text-left text-gray-700 border shadow-lg rounded-xl overflow-hidden">
+          <div className="overflow-x-auto">
+            {/* Filter Buttons */}
+            <div className="w-full flex my-10 justify-center">
+              <div className="inline-flex rounded-md shadow-xs">
+                <button
+                  onClick={() => setFilter("all")}
+                  className={`px-4 py-2 text-sm font-medium border border-gray-200 rounded-s-lg ${
+                    filter === "all"
+                      ? "text-blue-700 bg-white"
+                      : "text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700"
+                  }`}
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => setFilter("pending")}
+                  className={`px-4 py-2 text-sm font-medium border-t border-b border-gray-200 ${
+                    filter === "pending"
+                      ? "text-blue-700 bg-white"
+                      : "text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700"
+                  }`}
+                >
+                  Pending
+                </button>
+                <button
+                  onClick={() => setFilter("completed")}
+                  className={`px-4 py-2 text-sm font-medium border border-gray-200 rounded-e-lg ${
+                    filter === "completed"
+                      ? "text-blue-700 bg-white"
+                      : "text-gray-900 bg-white hover:bg-gray-100 hover:text-blue-700"
+                  }`}
+                >
+                  Completed
+                </button>
+              </div>
+            </div>
+
+            {/* Task Table */}
+            <table className="w-full my-10 md:w-8/12 lg:w-6/12 mx-auto text-sm text-left text-gray-700 border rounded-xl overflow-hidden">
               <thead className="text-xs uppercase bg-gray-100 text-gray-700">
                 <tr>
                   <th className="px-6 py-3">Task</th>
@@ -62,7 +117,7 @@ const Todo = () => {
                 </tr>
               </thead>
               <tbody>
-                {tasks.map((task) => (
+                {filteredTasks.map((task) => (
                   <Table
                     key={task.id}
                     id={task.id}
@@ -77,7 +132,7 @@ const Todo = () => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Todo
+export default Todo;
