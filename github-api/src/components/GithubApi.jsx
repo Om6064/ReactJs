@@ -158,7 +158,7 @@ const GithubApi = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col sm:flex-row justify-around items-center gap-4 mt-6">
+                                <div className="flex cursor-pointer flex-col sm:flex-row justify-around items-center gap-4 mt-6">
                                     <button
                                         onClick={downloadCard}
                                         className="w-full sm:w-auto bg-[#36d399] hover:bg-[#2dbb83] text-white px-6 py-2 rounded-xl shadow-md transition"
@@ -167,7 +167,7 @@ const GithubApi = () => {
                                     </button>
                                     <button
                                         onClick={openGit}
-                                        className="w-full sm:w-auto bg-[#111827] hover:bg-white text-white hover:text-black px-6 py-2 rounded-xl shadow-md transition"
+                                        className="w-full cursor-pointer sm:w-auto bg-[#111827] hover:bg-white text-white hover:text-black px-6 py-2 rounded-xl shadow-md transition"
                                     >
                                         <i className="fa-brands fa-github mr-1"></i> Open GitHub
                                     </button>
