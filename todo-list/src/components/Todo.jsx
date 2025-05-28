@@ -1,6 +1,7 @@
 
 import  { useEffect, useState } from "react";
 import Table from "./Table";
+import swal from 'sweetalert';
 
 const Todo = () => {
   const [text, setText] = useState("");
@@ -9,7 +10,10 @@ const Todo = () => {
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   const addTask = () => {
-    if (text.trim() === "") return;
+    if (text.trim() === ""){
+      swal("Oops!", "Task Is Not Defined!", "error");
+      return;
+    }
 
     const newTask = {
       id: Date.now(),
