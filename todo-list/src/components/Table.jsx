@@ -1,21 +1,24 @@
-const Table = (props) => {
+const Table = ({ id, name, complete, onComplete }) => {
+  return (
+    <li className="bg-gray-100 rounded-lg flex justify-between items-center px-4 py-3 shadow-sm">
+      <span
+        className={`text-base font-medium ${complete ? "line-through text-green-600" : "text-gray-800"}`}
+      >
+        {name}
+      </span>
 
-    return (
-        <tr className="bg-white border-b">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {props.name}
-            </th>
-            <td className="px-6 py-4 text-right">
-                {
-                    props.complete ? 
-                    <a href="#" className="font-medium text-green-600  hover:underline">Completed</a> 
-                    : <a href="#" className="font-medium text-blue-600  hover:underline" onClick={() => {
-                        props.onComplete(props.id)
-                    }}>Marks As Complete</a>
-                }
-            </td>
-        </tr>
-    )
-}
+      {complete ? (
+        ""
+      ) : (
+        <button
+          onClick={() => onComplete(id)}
+          className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center hover:bg-green-600 shadow-md transition"
+        >
+          ✔
+        </button>
+      )}
+    </li>
+  );
+};
 
-export default Table
+export default Table;
