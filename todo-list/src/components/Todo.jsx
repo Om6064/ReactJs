@@ -7,7 +7,7 @@ const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
-  const [textValue, setTextValue] = useState(""); 
+  const [textValue, setTextValue] = useState("");
 
   const handleInputChange = (e) => {
     setTextValue(e.target.value);
@@ -30,8 +30,8 @@ const Todo = () => {
 
     setTasks([...tasks, newTask]);
 
-    input.value = "";        
-    setTextValue("");        
+    input.value = "";
+    setTextValue("");
   };
 
   const clearAll = () => {
@@ -82,31 +82,28 @@ const Todo = () => {
         <div className="flex justify-center mb-6 space-x-2">
           <button
             onClick={() => setFilter("all")}
-            className={`px-4 py-1 rounded-full text-sm font-medium ${
-              filter === "all"
+            className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "all"
                 ? "bg-purple-600 text-white"
                 : "bg-gray-100 text-gray-800"
-            }`}
+              }`}
           >
             All
           </button>
           <button
             onClick={() => setFilter("pending")}
-            className={`px-4 py-1 rounded-full text-sm font-medium ${
-              filter === "pending"
+            className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "pending"
                 ? "bg-purple-600 text-white"
                 : "bg-gray-100 text-gray-800"
-            }`}
+              }`}
           >
             Pending
           </button>
           <button
             onClick={() => setFilter("completed")}
-            className={`px-4 py-1 rounded-full text-sm font-medium ${
-              filter === "completed"
+            className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "completed"
                 ? "bg-purple-600 text-white"
                 : "bg-gray-100 text-gray-800"
-            }`}
+              }`}
           >
             Completed
           </button>
