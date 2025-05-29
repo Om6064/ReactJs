@@ -1,5 +1,4 @@
-
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "./Table";
 import swal from 'sweetalert';
 
@@ -10,7 +9,7 @@ const Todo = () => {
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   const addTask = () => {
-    if (text.trim() === ""){
+    if (text.trim() === "") {
       swal("Oops!", "Task Is Not Defined!", "error");
       return;
     }
@@ -23,6 +22,10 @@ const Todo = () => {
 
     setTasks([...tasks, newTask]);
     setText("");
+  };
+
+  const clearAll = () => {
+    setTasks([]);
   };
 
   const markAsComplete = (id) => {
@@ -90,7 +93,7 @@ const Todo = () => {
         <div className="h-[270px] overflow-y-scroll">
           {filteredTasks.length === 0 ? (
             <div className="ps-5">
-              <img src="/nodata(1).png"/>
+              <img src="/nodata(1).png" />
             </div>
           ) : (
             <ul className="space-y-3">
@@ -106,6 +109,18 @@ const Todo = () => {
             </ul>
           )}
         </div>
+
+        {filteredTasks.length === 0 ? (
+          <div className="pt-2">
+            <div className="p-2"></div>
+          </div>
+        ) : (
+          <div className="text-center pt-2">
+            <button className="bg-red-600 hover:bg-red-700 rounded p-2 text-white" onClick={clearAll}>
+              Delete All
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
