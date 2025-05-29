@@ -15,7 +15,7 @@ const Todo = () => {
 
   const addTask = () => {
     const input = inputRef.current;
-    const inputValue = input?.value?.trim();
+    const inputValue = input.value.trim();
 
     if (!inputValue) {
       swal("Oops!", "Task Is Not Defined!", "error");
