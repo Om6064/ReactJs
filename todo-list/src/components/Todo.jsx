@@ -7,11 +7,17 @@ const Todo = () => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
+  const [textValue, setTextValue] = useState(""); 
+
+  const handleInputChange = (e) => {
+    setTextValue(e.target.value);
+  };
 
   const addTask = () => {
-    const inputText = inputRef.current.value.trim();
+    const input = inputRef.current;
+    const inputValue = input?.value?.trim();
 
-    if (inputText === "") {
+    if (!inputValue) {
       swal("Oops!", "Task Is Not Defined!", "error");
       return;
     }
@@ -19,11 +25,13 @@ const Todo = () => {
     const newTask = {
       id: Date.now(),
       isComplete: false,
-      taskName: inputText,
+      taskName: inputValue,
     };
 
     setTasks([...tasks, newTask]);
-    inputRef.current.value = ""; // Clear the input field
+
+    input.value = "";        
+    setTextValue("");        
   };
 
   const clearAll = () => {
@@ -41,10 +49,8 @@ const Todo = () => {
     let updatedTasks = [];
 
     if (filter === "all") updatedTasks = tasks;
-    else if (filter === "pending")
-      updatedTasks = tasks.filter((task) => !task.isComplete);
-    else if (filter === "completed")
-      updatedTasks = tasks.filter((task) => task.isComplete);
+    else if (filter === "pending") updatedTasks = tasks.filter((task) => !task.isComplete);
+    else if (filter === "completed") updatedTasks = tasks.filter((task) => task.isComplete);
 
     setFilteredTasks(updatedTasks);
   }, [tasks, filter]);
@@ -56,10 +62,11 @@ const Todo = () => {
           ToDo List 📝
         </h1>
 
-        <form className="flex gap-2 mb-6" onSubmit={(e) => e.preventDefault()}>
+        <div className="flex gap-2 mb-6">
           <input
             type="text"
             ref={inputRef}
+            onChange={handleInputChange}
             className="flex-grow bg-gray-100 rounded-full px-4 py-2 text-gray-800 border-none focus:outline-none focus:ring-2 focus:ring-blue-400"
             placeholder="Enter a new task"
           />
@@ -70,7 +77,7 @@ const Todo = () => {
           >
             ➕
           </button>
-        </form>
+        </div>
 
         <div className="flex justify-center mb-6 space-x-2">
           <button
@@ -107,8 +114,8 @@ const Todo = () => {
 
         <div className="h-[270px] overflow-y-scroll">
           {filteredTasks.length === 0 ? (
-            <div className="ps-5">
-              <img src="/nodata(1).png" alt="No Data" />
+            <div className="ps-5 pt-5">
+              <img src="/nodata(1).png" />
             </div>
           ) : (
             <ul className="space-y-3">
@@ -126,11 +133,11 @@ const Todo = () => {
         </div>
 
         {filteredTasks.length === 0 ? (
-          <div className="pt-2">
+          <div className="py-2">
             <div className="p-2"></div>
           </div>
         ) : (
-          <div className="text-center pt-2">
+          <div className="text-center py-2">
             <button
               className="bg-red-600 hover:bg-red-700 rounded p-2 text-white"
               onClick={clearAll}
