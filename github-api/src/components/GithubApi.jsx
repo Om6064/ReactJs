@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import domtoimage from 'dom-to-image';
 
 const GithubApi = () => {
@@ -34,7 +34,6 @@ const GithubApi = () => {
 
         const fetchData = async () => {
             const res = await fetch(`https://api.github.com/users/${query}`);
-            console.log(res);
             if (!res.ok) {
                 setUserData({});
                 setError("❌ GitHub user not found. Please try again.");
@@ -44,8 +43,6 @@ const GithubApi = () => {
             const data = await res.json();
             setUserData(data);
             setError('');
-            console.log(data);
-            
         };
 
         fetchData();
@@ -58,11 +55,11 @@ const GithubApi = () => {
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">
                     <input
+                        id="github-input"
                         type="text"
                         className="w-full bg-[#374151] border border-[#4b5563] text-white placeholder-[#9ca3af] rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#36d399] backdrop-blur-sm transition"
                         placeholder="Enter GitHub username"
-                        value={userName}
-                        onChange={(e) => { setUserName(e.target.value) }}
+                        onChange={(e) => setUserName(e.target.value)}
                     />
                     <button
                         type="button"
@@ -77,105 +74,94 @@ const GithubApi = () => {
                                 setError("⚠️ This user is already shown.");
                                 return;
                             }
+
                             setQuery(trimmedName);
-                            setUserName("");
+                            setUserName(""); // still updates internal state
                             setError("");
+
+                            // Clear input without using `value` or `useRef`
+                            const input = document.getElementById("github-input");
+                            if (input) input.value = "";
                         }}
                     >
                         Search
                     </button>
                 </div>
 
-                {
-                    error
-                        ? <p className="text-red-400 font-medium text-lg mt-1 text-center">{error}</p>
-                        : ""
-                }
+                {error && (
+                    <p className="text-red-400 font-medium text-lg mt-1 text-center">{error}</p>
+                )}
 
-                {
-                    userData && userData.login
-                        ? (
-                            <div>
-                                <div
-                                    id="github-profile-card"
-                                    className="bg-[#1c2533] border border-[#374151] rounded-2xl shadow-xl p-6 text-center animate-fade-in"
-                                >
-                                    <img
-                                        src={userData.avatar_url}
-                                        alt={userData.login}
-                                        className="w-24 h-24 sm:w-28 sm:h-28 rounded-full mx-auto mb-4 border-4 border-[#36d399] shadow-lg"
-                                    />
-                                    <h2 className="text-2xl sm:text-3xl font-bold text-[#36d399]">{userData.name || userData.login}</h2>
-                                    <p className="text-[#9ca3af]">@{userData.login}</p>
-                                    {
-                                        userData.bio
-                                            ? <p className="mt-2 text-[#d3dce6] text-sm italic">"{userData.bio}"</p>
-                                            : ""
-                                    }
-                                    {
-                                        userData.email
-                                            ? <p className="mt-4 text-[#d3dce6] text-sm italic">"Rich Me :  {userData.email}"</p>
-                                            : ""
-                                    }
-                                    {
-                                        userData.company
-                                            ? <p className="mt-4 text-[#d3dce6] text-sm italic">"Working At :  {userData.company}"</p>
-                                            : ""
-                                    }
+                {userData && userData.login && (
+                    <div>
+                        <div
+                            id="github-profile-card"
+                            className="bg-[#1c2533] border border-[#374151] rounded-2xl shadow-xl p-6 text-center animate-fade-in"
+                        >
+                            <img
+                                src={userData.avatar_url}
+                                alt={userData.login}
+                                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full mx-auto mb-4 border-4 border-[#36d399] shadow-lg"
+                            />
+                            <h2 className="text-2xl sm:text-3xl font-bold text-[#36d399]">{userData.name || userData.login}</h2>
+                            <p className="text-[#9ca3af]">@{userData.login}</p>
+                            {userData.bio && <p className="mt-2 text-[#d3dce6] text-sm italic">"{userData.bio}"</p>}
+                            {userData.email && <p className="mt-4 text-[#d3dce6] text-sm italic">"Rich Me :  {userData.email}"</p>}
+                            {userData.company && <p className="mt-4 text-[#d3dce6] text-sm italic">"Working At :  {userData.company}"</p>}
 
-                                    <hr className="my-4 border-[#374151]" />
+                            <hr className="my-4 border-[#374151]" />
 
-                                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-white/90 text-center">
-                                        <div>
-                                            <span className="block text-lg font-bold text-[#36d399]">{userData.followers}</span>
-                                            Followers
-                                        </div>
-                                        <div>
-                                            <span className="block text-lg font-bold text-[#36d399]">{userData.following}</span>
-                                            Following
-                                        </div>
-                                        <div>
-                                            <span className="block text-lg font-bold text-[#36d399]">{userData.public_repos}</span>
-                                            Repos
-                                        </div>
-                                    </div>
-                                    <div className="flex pt-4 flex-col sm:flex-row justify-around items-center gap-4 mt-6">
-                                        <div className="flex gap-3">
-                                            <div>
-                                                <i class="fa-solid fa-location-dot"></i>
-                                            </div>
-                                            <div>
-                                                {!userData.location ? "Not Available": userData.location }
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-3">
-                                            <div>
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </div>
-                                            <div>
-                                                {!userData.updated_at ? "Not Available": userData.updated_at }
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-white/90 text-center">
+                                <div>
+                                    <span className="block text-lg font-bold text-[#36d399]">{userData.followers}</span>
+                                    Followers
                                 </div>
-                                <div className="flex cursor-pointer flex-col sm:flex-row justify-around items-center gap-4 mt-6">
-                                    <button
-                                        onClick={downloadCard}
-                                        className="w-full sm:w-auto bg-[#36d399] hover:bg-[#2dbb83] text-white px-6 py-2 rounded-xl shadow-md transition"
-                                    >
-                                        📥 Download Card
-                                    </button>
-                                    <button
-                                        onClick={openGit}
-                                        className="w-full cursor-pointer sm:w-auto bg-[#111827] hover:bg-white text-white hover:text-black px-6 py-2 rounded-xl shadow-md transition"
-                                    >
-                                        <i className="fa-brands fa-github mr-1"></i> Open GitHub
-                                    </button>
+                                <div>
+                                    <span className="block text-lg font-bold text-[#36d399]">{userData.following}</span>
+                                    Following
+                                </div>
+                                <div>
+                                    <span className="block text-lg font-bold text-[#36d399]">{userData.public_repos}</span>
+                                    Repos
                                 </div>
                             </div>
-                        )
-                        : ""
-                }
+
+                            <div className="flex pt-4 flex-col sm:flex-row justify-around items-center gap-4 mt-6">
+                                <div className="flex gap-3">
+                                    <div>
+                                        <i className="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        {!userData.location ? "Not Available" : userData.location}
+                                    </div>
+                                </div>
+                                <div className="flex gap-3">
+                                    <div>
+                                        <i className="fa-solid fa-pen-to-square"></i>
+                                    </div>
+                                    <div>
+                                        {!userData.updated_at ? "Not Available" : userData.updated_at}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="flex cursor-pointer flex-col sm:flex-row justify-around items-center gap-4 mt-6">
+                            <button
+                                onClick={downloadCard}
+                                className="w-full sm:w-auto bg-[#36d399] hover:bg-[#2dbb83] text-white px-6 py-2 rounded-xl shadow-md transition"
+                            >
+                                📥 Download Card
+                            </button>
+                            <button
+                                onClick={openGit}
+                                className="w-full cursor-pointer sm:w-auto bg-[#111827] hover:bg-white text-white hover:text-black px-6 py-2 rounded-xl shadow-md transition"
+                            >
+                                <i className="fa-brands fa-github mr-1"></i> Open GitHub
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
