@@ -1,6 +1,6 @@
 const Table = (props) => {
   return (
-    <li className="bg-gray-100 rounded-lg flex justify-between items-center px-4 py-3 shadow-sm">
+    <li className="bg-gray-100 overflow-y-auto rounded-lg flex justify-between items-center px-4 py-3 shadow-sm">
       <span
         className={`text-base font-medium ${props.complete ? "line-through text-green-600" : "text-gray-800"}`}
       >
