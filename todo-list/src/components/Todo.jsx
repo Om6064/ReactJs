@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Table from "./Table";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 const Todo = () => {
-  const [text, setText] = useState("");
+  const inputRef = useRef(null);
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   const addTask = () => {
-    if (text.trim() === "") {
+    const inputText = inputRef.current.value.trim();
+
+    if (inputText === "") {
       swal("Oops!", "Task Is Not Defined!", "error");
       return;
     }
@@ -17,11 +19,11 @@ const Todo = () => {
     const newTask = {
       id: Date.now(),
       isComplete: false,
-      taskName: text,
+      taskName: inputText,
     };
 
     setTasks([...tasks, newTask]);
-    setText("");
+    inputRef.current.value = ""; // Clear the input field
   };
 
   const clearAll = () => {
@@ -39,8 +41,10 @@ const Todo = () => {
     let updatedTasks = [];
 
     if (filter === "all") updatedTasks = tasks;
-    else if (filter === "pending") updatedTasks = tasks.filter((task) => !task.isComplete);
-    else if (filter === "completed") updatedTasks = tasks.filter((task) => task.isComplete);
+    else if (filter === "pending")
+      updatedTasks = tasks.filter((task) => !task.isComplete);
+    else if (filter === "completed")
+      updatedTasks = tasks.filter((task) => task.isComplete);
 
     setFilteredTasks(updatedTasks);
   }, [tasks, filter]);
@@ -52,13 +56,12 @@ const Todo = () => {
           ToDo List 📝
         </h1>
 
-        <form className="flex gap-2 mb-6">
+        <form className="flex gap-2 mb-6" onSubmit={(e) => e.preventDefault()}>
           <input
             type="text"
+            ref={inputRef}
             className="flex-grow bg-gray-100 rounded-full px-4 py-2 text-gray-800 border-none focus:outline-none focus:ring-2 focus:ring-blue-400"
             placeholder="Enter a new task"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
           />
           <button
             type="button"
@@ -72,19 +75,31 @@ const Todo = () => {
         <div className="flex justify-center mb-6 space-x-2">
           <button
             onClick={() => setFilter("all")}
-            className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "all" ? "bg-purple-600 text-white" : "bg-gray-100 text-gray-800"}`}
+            className={`px-4 py-1 rounded-full text-sm font-medium ${
+              filter === "all"
+                ? "bg-purple-600 text-white"
+                : "bg-gray-100 text-gray-800"
+            }`}
           >
             All
           </button>
           <button
             onClick={() => setFilter("pending")}
-            className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "pending" ? "bg-purple-600 text-white" : "bg-gray-100 text-gray-800"}`}
+            className={`px-4 py-1 rounded-full text-sm font-medium ${
+              filter === "pending"
+                ? "bg-purple-600 text-white"
+                : "bg-gray-100 text-gray-800"
+            }`}
           >
             Pending
           </button>
           <button
             onClick={() => setFilter("completed")}
-            className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "completed" ? "bg-purple-600 text-white" : "bg-gray-100 text-gray-800"}`}
+            className={`px-4 py-1 rounded-full text-sm font-medium ${
+              filter === "completed"
+                ? "bg-purple-600 text-white"
+                : "bg-gray-100 text-gray-800"
+            }`}
           >
             Completed
           </button>
@@ -93,7 +108,7 @@ const Todo = () => {
         <div className="h-[270px] overflow-y-scroll">
           {filteredTasks.length === 0 ? (
             <div className="ps-5">
-              <img src="/nodata(1).png" />
+              <img src="/nodata(1).png" alt="No Data" />
             </div>
           ) : (
             <ul className="space-y-3">
@@ -116,7 +131,10 @@ const Todo = () => {
           </div>
         ) : (
           <div className="text-center pt-2">
-            <button className="bg-red-600 hover:bg-red-700 rounded p-2 text-white" onClick={clearAll}>
+            <button
+              className="bg-red-600 hover:bg-red-700 rounded p-2 text-white"
+              onClick={clearAll}
+            >
               Delete All
             </button>
           </div>
