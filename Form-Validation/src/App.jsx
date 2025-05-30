@@ -1,9 +1,9 @@
-import Form from "./components/Form"
+import SpacerForm from "./components/SpacerForm"
 
 const App = () => {
   return (
     <>
-      <Form/>
+      <SpacerForm/>
     </>
   )
 }
