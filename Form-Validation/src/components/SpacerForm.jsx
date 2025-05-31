@@ -1,7 +1,10 @@
 import { useState } from "react";
 
 const SpacerForm = () => {
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({
+    fname: "", lname: "", phone: "", email: "", password: "", confirmPassword: ""
+  });
+  const [error, setEroors] = useState({})
   const handleChange = (e) => {
     setInput({ ...input, [e.target.id]: e.target.value });
   };
@@ -12,6 +15,31 @@ const SpacerForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", input);
+
+    let errorobj = - {};
+
+    if (input.fname.trim() == "") {
+      errorobj.fname = "Please Enter The Fname";
+    }
+    if (input.lname.trim() == "") {
+      errorobj.fname = "Please Enter The Lname";
+    }
+    if (input.phone.trim() == "") {
+      errorobj.fname = "Please Enter The Phone Num";
+    }
+    if (input.email.trim() == "") {
+      errorobj.fname = "Please Enter The Phone Num";
+    }
+    if (input.password.trim() == "" || input.password.length < 8) {
+      errorobj.fname = "Password should be at Least 8 Charecter Long";
+    }
+    if (input.confirmPassword.trim() == "" || input.password != input.confirmPassword) {
+      errorobj.fname = "Password and ConfirmPassword should be Same";
+    }
+
+    setEroors(errorobj)
+
+
   };
 
   return (
@@ -49,14 +77,19 @@ const SpacerForm = () => {
                 onChange={handleChange}
                 placeholder="First name"
                 className="input-style p-4"
+                value={input.fname}
                 required
               />
+              {/* {
+                error.fname && 
+              } */}
               <input
                 type="text"
-                id="last_name"
+                id="lname"
                 onChange={handleChange}
                 placeholder="Last name"
                 className="input-style p-4"
+                value={input.lname}
                 required
               />
               <input
@@ -66,6 +99,7 @@ const SpacerForm = () => {
                 placeholder="123-45-678"
                 className="input-style p-4"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                value={input.phone}
                 required
               />
               <input
@@ -74,6 +108,7 @@ const SpacerForm = () => {
                 onChange={handleChange}
                 placeholder="Email address"
                 className="input-style p-4"
+                value={input.email}
                 required
               />
               <input
@@ -82,14 +117,16 @@ const SpacerForm = () => {
                 onChange={handleChange}
                 placeholder="Password"
                 className="input-style p-4"
+                value={input.password}
                 required
               />
               <input
                 type="password"
-                id="confirm_password"
+                id="confirmPassword"
                 onChange={handleChange}
                 placeholder="Confirm password"
                 className="input-style p-4"
+                value={input.confirmPassword}
                 required
               />
             </div>
