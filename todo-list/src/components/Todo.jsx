@@ -109,7 +109,7 @@ const Todo = () => {
           </button>
         </div>
 
-        <div className="h-[270px] overflow-y-scroll">
+        <div className="h-[270px] overflow-scroll">
           {filteredTasks.length === 0 ? (
             <div className="ps-5 pt-5">
               <img src="/nodata(1).png" />
