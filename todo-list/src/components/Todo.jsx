@@ -15,7 +15,7 @@ const Todo = () => {
 
   const addTask = () => {
     const input = inputRef.current;
-    const inputValue = input?.value?.trim();
+    const inputValue = input.value.trim();
 
     if (!inputValue) {
       swal("Oops!", "Task Is Not Defined!", "error");
@@ -83,8 +83,8 @@ const Todo = () => {
           <button
             onClick={() => setFilter("all")}
             className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "all"
-                ? "bg-purple-600 text-white"
-                : "bg-gray-100 text-gray-800"
+              ? "bg-purple-600 text-white"
+              : "bg-gray-100 text-gray-800"
               }`}
           >
             All
@@ -92,8 +92,8 @@ const Todo = () => {
           <button
             onClick={() => setFilter("pending")}
             className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "pending"
-                ? "bg-purple-600 text-white"
-                : "bg-gray-100 text-gray-800"
+              ? "bg-purple-600 text-white"
+              : "bg-gray-100 text-gray-800"
               }`}
           >
             Pending
@@ -101,8 +101,8 @@ const Todo = () => {
           <button
             onClick={() => setFilter("completed")}
             className={`px-4 py-1 rounded-full text-sm font-medium ${filter === "completed"
-                ? "bg-purple-600 text-white"
-                : "bg-gray-100 text-gray-800"
+              ? "bg-purple-600 text-white"
+              : "bg-gray-100 text-gray-800"
               }`}
           >
             Completed
