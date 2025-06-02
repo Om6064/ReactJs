@@ -137,7 +137,7 @@ const Review = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="max-w-md mx-auto bg-white shadow-xl rounded-xl p-6 text-center"
+                    className="max-w-md mx-auto bg-white shadow-xl rounded-xl p-6 text-center overflow-x-scroll"
                 >
                     <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl font-bold mb-4">
                         {text.name[0].toUpperCase()}
