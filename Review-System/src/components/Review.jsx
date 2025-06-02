@@ -128,25 +128,39 @@ const Review = () => {
                         {error.review && <p className="text-red-500 text-sm mt-1">{error.review}</p>}
                     </div>
 
-                    <button
+                   <div className="flex gap-4">
+                     <button
                         type="submit"
                         className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
                     >
                         Submit
                     </button>
+                    <button
+                        type="button"
+                        className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+                        onClick={() => {
+                            setShowCard(true)
+                        }}
+                    >
+                        Show Data
+                    </button>
+                   </div>
                 </motion.form>
             ) : (
                 <div>
-                    <div className="text-left text-2xl" onClick={() => {
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 py-8">
+                        {reviews.map((review, index) => (
+                            <Card key={index} textObj={review} />
+                        ))}
+                    </div>
+                    <div className="text-left text-2xl  bg-blue-100 rounded-full h-16 w-16 flex items-center justify-center text-blue-600 cursor-pointer" onClick={() => {
                         setShowCard(false)
                     }}>
-                        <i class="fa-solid fa-arrow-left"></i>
+                        <i class="fa-solid fa-arrow-left block"></i>
                     </div>
-                    <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto p-4">
-                    {reviews.map((review, index) => (
-                        <Card key={index} textObj={review} />
-                    ))}
-                </div>
+
+
+
                 </div>
 
             )}
