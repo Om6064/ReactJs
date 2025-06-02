@@ -148,16 +148,16 @@ const Review = () => {
                 </motion.form>
             ) : (
                 <div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 py-8">
+                    <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 py-8">
                         {reviews.map((review, index) => (
                             <Card key={index} textObj={review} />
                         ))}
                     </div>
-                    <div className="text-left text-2xl  bg-blue-100 rounded-full h-16 w-16 flex items-center justify-center text-blue-600 cursor-pointer" onClick={() => {
+                    <button className="text-2xl text-center bg-blue-100 rounded-full h-16 w-16 flex items-center justify-center  text-blue-600 cursor-pointer" onClick={() => {
                         setShowCard(false)
                     }}>
-                        <i class="fa-solid fa-arrow-left block"></i>
-                    </div>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
 
 
 
