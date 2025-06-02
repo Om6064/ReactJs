@@ -98,7 +98,7 @@ const Review = () => {
                                 id="star"
                                   className={`w-full border-b-2 focus:border-blue-600 outline-none p-2 ${!error.star ? "border-gray-300" :"border-red-300" }`}
                             >
-                                <option value="">---Rate Me---</option>
+                                <option value="">---Rate---</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
