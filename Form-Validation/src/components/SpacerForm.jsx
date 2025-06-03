@@ -27,7 +27,7 @@ const SpacerForm = () => {
     if (input.lname.trim() === "") {
       errorobj.lname = "Please Enter The Last Name";
     }
-    
+  
     if (input.phone.trim() === "" || !phoneRegex.test(input.phone)) {
       errorobj.phone = "Please Enter The valid Phone Number";
     }
