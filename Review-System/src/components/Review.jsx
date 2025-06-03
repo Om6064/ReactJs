@@ -128,23 +128,23 @@ const Review = () => {
                         {error.review && <p className="text-red-500 text-sm mt-1">{error.review}</p>}
                     </div>
 
-                   <div className="flex gap-4">
-                     <button
-                        type="submit"
-                        className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-                    >
-                        Submit
-                    </button>
-                    <button
-                        type="button"
-                        className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-                        onClick={() => {
-                            setShowCard(true)
-                        }}
-                    >
-                        Show Data
-                    </button>
-                   </div>
+                    <div className="flex gap-4">
+                        <button
+                            type="button"
+                            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+                            onClick={() => {
+                                setShowCard(true)
+                            }}
+                        >
+                            Show Data
+                        </button>
+                        <button
+                            type="submit"
+                            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+                        >
+                            Submit
+                        </button>
+                    </div>
                 </motion.form>
             ) : (
                 <div>
@@ -153,14 +153,19 @@ const Review = () => {
                             <Card key={index} textObj={review} />
                         ))}
                     </div>
-                    <button className="text-2xl text-center bg-blue-100 rounded-full h-16 w-16 flex items-center justify-center  text-blue-600 cursor-pointer" onClick={() => {
-                        setShowCard(false)
-                    }}>
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
 
 
 
+                    <div className="w-full flex justify-center pb-3">
+                        <button
+                            className="text-2xl text-center p-3 font-semibold bg-blue-100 rounded flex items-center justify-center text-blue-600 cursor-pointer hover:bg-blue-600 hover:text-blue-100 transition-all duration-75"
+                            onClick={() => {
+                                setShowCard(false);
+                            }}
+                        >
+                            Previous
+                        </button>
+                    </div>
                 </div>
 
             )}
