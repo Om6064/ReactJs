@@ -1,0 +1,26 @@
+.bg-button{
+    background-color: #5d57f4;
+}
+.bg-color{
+    background-color: #f7f6fe;
+}
+.hover{
+    cursor: pointer;
+    transition: .2s all linear;
+}
+.hover:hover{
+    color: #5d57f4;
+}
+.inovation-btn{
+    width: 200px;
+    height: 24px;
+    padding: 20px;
+}
+.circle-icon{
+    height: 24px;
+    width:24px;
+    background-color: #d9d6fc;
+}
+.font-14{
+    font-size: 14px;
+}
