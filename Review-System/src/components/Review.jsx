@@ -53,7 +53,8 @@ const Review = () => {
     };
 
     return (
-        <div className="container mx-auto px-4 min-h-screen flex items-center justify-center">
+        <div className="bg-slate-100">
+            <div className="container mx-auto px-4 min-h-screen  flex items-center justify-center">
             {!showCard ? (
                 <motion.form
                     initial={{ opacity: 0, y: 50 }}
@@ -169,6 +170,7 @@ const Review = () => {
                 </div>
 
             )}
+        </div>
         </div>
     );
 };
