@@ -13,7 +13,6 @@
 }
 .inovation-btn{
     width: 200px;
-    height: 24px;
     padding: 20px;
 }
 .circle-icon{
@@ -23,4 +22,25 @@
 }
 .font-14{
     font-size: 14px;
+}
+.p-t-100{
+    padding-top: 100px;
+}
+.font-18{
+    font-size: 18px;
+}
+.hover-img{
+    transition: .2s all linear;
+    cursor: pointer;
+}
+.hover-img:hover{
+    transform: translateY(-5px);
+}
+.bg-circle1{
+    height: 60px;
+    aspect-ratio: 1;
+    background-color: #eeeefd;
+}
+.color-main{
+    color: #5d57f4;
 }

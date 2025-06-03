@@ -1,18 +1,27 @@
-import HeroRight from "./HeroRight"
 
-const HeroSec = () => {
+
+const HeroSec = (props) => {
+
+
     return (
-        <section className="pt-5">
-            <div className="row">
-                <div className="col-6">
-                    <HeroRight />
+        <div className="container">
+            <section className="p-t-100">
+                <div className="row">
+                    <div className="col-6">
+                        {props.left}
+                    </div>
+                    <div className="col-6">
+                        {props.right}
+                    </div>
                 </div>
-                <div className="col-6">
-
+            </section>
+            <div className="mt-5">
+                <div className="row justify-content-between">
+                    {props.sub}
                 </div>
             </div>
-        </section>
-    )
-}
+        </div>
+    );
+};
 
-export default HeroSec
+export default HeroSec;
