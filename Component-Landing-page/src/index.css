@@ -1,46 +1,171 @@
-.bg-button{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.bg-button {
     background-color: #5d57f4;
 }
-.bg-color{
+
+.bg-color {
     background-color: #f7f6fe;
 }
-.hover{
+
+.hover {
     cursor: pointer;
     transition: .2s all linear;
 }
-.hover:hover{
+
+.hover:hover {
     color: #5d57f4;
 }
-.inovation-btn{
-    width: 200px;
+
+.inovation-btn {
+    width: 230px;
     padding: 20px;
 }
-.circle-icon{
+
+.circle-icon {
     height: 24px;
-    width:24px;
+    width: 24px;
     background-color: #d9d6fc;
 }
-.font-14{
+
+.font-14 {
     font-size: 14px;
 }
-.p-t-100{
+
+.p-t-100 {
     padding-top: 100px;
 }
-.font-18{
+
+.font-18 {
     font-size: 18px;
 }
-.hover-img{
+
+.hover-img {
     transition: .2s all linear;
     cursor: pointer;
 }
-.hover-img:hover{
+
+.hover-img:hover {
     transform: translateY(-5px);
 }
-.bg-circle1{
+
+.bg-circle1 {
     height: 60px;
     aspect-ratio: 1;
     background-color: #eeeefd;
 }
-.color-main{
+
+
+
+.color-main {
     color: #5d57f4;
+}
+
+.section-title h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #5d57f4;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.section-title h2:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 160px;
+    height: 1px;
+    background:
+        color-mix(in srgb, #212529, transparent 60%);
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    margin: auto;
+}
+
+.service-item {
+    display: flex;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s ease;
+}
+
+.service-icon {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    background-color:
+        color-mix(in srgb, #5d57f4, transparent 90%);
+    color: #5d57f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    transition: all 0.5s ease;
+}
+
+.service-icon1 {
+    height: 80px;
+    width: 80px;
+    border: 1px solid #5d57f4;
+    border-radius: 50%;
+}
+
+.cta-pattern {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    bottom: -30px;
+    right: -30px;
+    background: repeating-linear-gradient(45deg,
+            color-mix(in srgb, #5d57f4, transparent 98%),
+            color-mix(in srgb, #5d57f4, transparent 98%) 10px,
+            color-mix(in srgb, #5d57f4, transparent 95%) 10px,
+            color-mix(in srgb, #5d57f4, transparent 95%) 20px);
+    z-index: 1;
+    border-radius: 1rem;
+}
+
+.cta-image-wrapper img {
+    transform: scaleX(-1);
+}
+
+.bg-btn {
+    border: 1px solid #5d57f4 !important;
+}
+
+.faq-contact-card {
+    background: linear-gradient(135deg, #5d57f4,
+            color-mix(in srgb, #5d57f4, #32353a 30%));
+    border-radius: 10px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.contact-option {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #fff;
+    transition: all 0.3s ease;
 }
