@@ -169,6 +169,7 @@
     color: #fff;
     transition: all 0.3s ease;
 }
+
 .faq-item {
     background-color: #fff;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
@@ -176,4 +177,16 @@
     margin-bottom: 16px;
     overflow: hidden;
     transition: all 0.3s ease;
+}
+
+.testimonial-profile {
+    background-color:
+        color-mix(in srgb, #32353a, transparent 95%) !important;
+    border-top: 1px solid color-mix(in srgb, #32353a, transparent 90%);
+}
+.color-yellow{
+    color: #ffc106;
+}
+.line-height{
+    line-height: 1.7 !important;
 }

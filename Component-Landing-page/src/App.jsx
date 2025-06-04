@@ -13,6 +13,7 @@ import FaqLeft from './components/FaqLeft';
 import FaqRight from './components/FaqRight';
 import Team from './components/Team';
 import TestimonialsMain from './components/TestimonialsMain';
+import Contect from './components/Contect';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
       <HeroSec left={<FaqLeft/>} right={<FaqRight/>}/>
       <Team/>
       <TestimonialsMain/>
+      <Contect/>
     </>
   )
 }
