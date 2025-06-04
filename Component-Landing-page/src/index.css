@@ -37,7 +37,7 @@
 }
 
 .p-t-100 {
-    padding-top: 100px;
+    padding: 100px 0;
 }
 
 .font-18 {
@@ -167,5 +167,13 @@
     padding: 15px 20px;
     border-radius: 8px;
     color: #fff;
+    transition: all 0.3s ease;
+}
+.faq-item {
+    background-color: #fff;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    overflow: hidden;
     transition: all 0.3s ease;
 }

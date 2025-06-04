@@ -10,6 +10,9 @@ import VisionLeft from './components/VisionLeft';
 import VisionRight from './components/VisionRight';
 import Vistion from './components/Vistion';
 import FaqLeft from './components/FaqLeft';
+import FaqRight from './components/FaqRight';
+import Team from './components/Team';
+import TestimonialsMain from './components/TestimonialsMain';
 
 
 const App = () => {
@@ -20,7 +23,9 @@ const App = () => {
       <Service/>
       <HeroSec left={<ServiceLeft/>} right={<ServiceRight/>}/>
       <Vistion left={<VisionLeft/>} right={<VisionRight/>}/>
-      <HeroSec left={<FaqLeft/>} right={<ServiceRight/>}/>
+      <HeroSec left={<FaqLeft/>} right={<FaqRight/>}/>
+      <Team/>
+      <TestimonialsMain/>
     </>
   )
 }
