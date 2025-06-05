@@ -184,9 +184,34 @@
         color-mix(in srgb, #32353a, transparent 95%) !important;
     border-top: 1px solid color-mix(in srgb, #32353a, transparent 90%);
 }
-.color-yellow{
+
+.color-yellow {
     color: #ffc106;
 }
-.line-height{
+
+.line-height {
     line-height: 1.7 !important;
+}
+
+.form-icon-box {
+    width: 50px;
+    background-color: #f8f8fb;
+    border-right: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c63ff;
+}
+
+.btn-submit {
+    background-color: #6c63ff !important;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #574dcf;
 }
