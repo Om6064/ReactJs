@@ -8,10 +8,10 @@ const ServiceCard = (props) => {
                 <div className="service-content">
                     <h3>{props.title}</h3>
                     <p>{props.des}</p>
-                    <a href="#" className="service-link">
+                    <div className="service-link">
                         <span>Learn More</span>
                         <i className="bi bi-arrow-right" />
-                    </a>
+                    </div>
                 </div>
             </div>
 

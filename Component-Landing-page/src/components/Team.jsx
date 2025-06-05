@@ -32,7 +32,7 @@ const Team = () => {
                         <Title main="Team" sub="Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit" />
                     </div>
                     <div>
-                        <div className="row">
+                        <div className="row gy-5">
             
                                 {arr.map((items) => {
                                     return <TeamCard img={items.img} name={items.name} role={items.role}/>

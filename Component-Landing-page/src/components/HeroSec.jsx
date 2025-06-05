@@ -6,11 +6,11 @@ const HeroSec = (props) => {
     return (
         <div className="container">
             <section className="p-t-100">
-                <div className="row">
-                    <div className="col-6">
+                <div className="row gy-5">
+                    <div className="col-md-6">
                         {props.left}
                     </div>
-                    <div className="col-6">
+                    <div className="col-md-6">
                         {props.right}
                     </div>
                 </div>
