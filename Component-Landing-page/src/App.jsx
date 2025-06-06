@@ -23,7 +23,7 @@ const App = () => {
     <>
       <Header />
       <HeroSec left={<AboutLeft/>} right={<AboutRight/>}/>
-      {/* <WorkSteps/> */}
+      <WorkSteps/>
       <Service/>
       <HeroSec left={<ServiceLeft/>} right={<ServiceRight/>}/>
       <Vistion left={<VisionLeft/>} right={<VisionRight/>}/>

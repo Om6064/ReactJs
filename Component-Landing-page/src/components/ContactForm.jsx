@@ -9,7 +9,7 @@ const ContactForm = () => {
         <Row className="g-3">
           <Col md={6}>
             <div className="d-flex border rounded overflow-hidden bg-white">
-              <div className="form-icon-box">
+              <div className="form-icon-box d-flex align-items-center justify-content-center">
                 <i class="bi bi-person"></i>
               </div>
               <Form.Control type="text" placeholder="Your name*" className="border-0 p-3" />
@@ -17,7 +17,7 @@ const ContactForm = () => {
           </Col>
           <Col md={6}>
             <div className="d-flex border rounded overflow-hidden bg-white">
-              <div className="form-icon-box">
+              <div className="form-icon-box d-flex align-items-center justify-content-center">
                 <i className="bi bi-envelope"></i>
               </div>
               <Form.Control type="email" placeholder="Email address*" className="border-0 p-3" />
@@ -25,7 +25,7 @@ const ContactForm = () => {
           </Col>
           <Col md={6}>
             <div className="d-flex border rounded overflow-hidden bg-white">
-              <div className="form-icon-box">
+              <div className="form-icon-box d-flex align-items-center justify-content-center">
                 <i className="bi bi-phone"></i>
               </div>
               <Form.Control type="tel" placeholder="Phone number*" className="border-0 p-3" />
@@ -33,7 +33,7 @@ const ContactForm = () => {
           </Col>
           <Col md={6}>
             <div className="d-flex border rounded overflow-hidden bg-white">
-              <div className="form-icon-box">
+              <div className="form-icon-box d-flex align-items-center justify-content-center">
                 <i className="bi bi-list"></i>
               </div>
               <Form.Select className="border-0 p-3">
@@ -46,7 +46,7 @@ const ContactForm = () => {
           </Col>
           <Col xs={12}>
             <div className="d-flex border rounded overflow-hidden bg-white">
-              <div className="form-icon-box align-items-center d-flex justify-content-center pt-2">
+              <div className="form-icon-box d-flex align-items-center justify-content-center align-items-center d-flex justify-content-center pt-2">
                 <i className="bi bi-chat-dots"></i>
               </div>
               <Form.Control as="textarea" rows={5} placeholder="Write a message*" className="border p-3-0" />

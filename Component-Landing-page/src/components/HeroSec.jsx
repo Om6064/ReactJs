@@ -15,7 +15,7 @@ const HeroSec = (props) => {
                     </div>
                 </div>
             </section>
-            <div className="mt-5">
+            <div className="mt-3">
                 <div className="row justify-content-between">
                     {props.sub}
                 </div>

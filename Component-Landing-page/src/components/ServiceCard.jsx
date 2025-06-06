@@ -1,8 +1,8 @@
 const ServiceCard = (props) => {
     return (
         <div className="col-md-6 my-3">
-            <div className="service-item">
-                <div className="service-icon">
+            <div className="service-item d-flex">
+                <div className="service-icon d-flex align-items-center justify-content-center">
                     <i className={`${props.icon} fs-3 fw-semibold`} />
                 </div>
                 <div className="service-content">

@@ -1,7 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    font-family: "Poppins", sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.fs-1,
+.fs-2,
+.fs-3,
+.fs-4,
+.fs-5,
+.fs-6 {
+    font-family: "Poppins", sans-serif !important;
 }
 
 .bg-button {
@@ -58,17 +80,26 @@
     aspect-ratio: 1;
     background-color: #eeeefd;
 }
-input:focus,select:focus,textarea:focus{
+
+input:focus,
+select:focus,
+textarea:focus {
     box-shadow: none !important;
 }
+
 .acc .accordion-button:focus {
-  box-shadow: none !important;
-  outline: none !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
+
+.acc .accordion-button {
+    font-weight: 700;
+}
+
 .accordion-button:not(.collapsed) {
-  background-color: transparent !important;
-  color: inherit !important;
-  box-shadow: none !important;
+    background-color: transparent !important;
+    color: inherit !important;
+    box-shadow: none !important;
 }
 
 .color-main {
@@ -103,7 +134,6 @@ input:focus,select:focus,textarea:focus{
 }
 
 .service-item {
-    display: flex;
     background-color: #fff;
     border-radius: 12px;
     padding: 2rem;
@@ -111,10 +141,10 @@ input:focus,select:focus,textarea:focus{
     position: relative;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-     /* border-left: 3px solid #574dcf !important; */
     transition: all 0.4s ease;
     cursor: pointer;
 }
+
 .service-item::after {
     content: "";
     position: absolute;
@@ -124,32 +154,39 @@ input:focus,select:focus,textarea:focus{
     border-left: 3px solid transparent;
     transition: border-color .5s ease;
 }
-.service-link{
+
+.service-link {
     transition: .3s linear all;
 }
-.service-item:hover .service-link{
+
+.service-item:hover .service-link {
     letter-spacing: 2px;
 }
 
 .service-item:hover::after {
     border-color: #574dcf;
 }
-.service-item:hover .service-icon{
+
+.service-item:hover .service-icon {
     transform: scaleX(-1);
     background-color: #574dcf;
     color: white !important;
 }
-.service-icon1{
+
+.service-icon1 {
     color: #574dcf;
 }
-.service-item:hover .service-icon1{
+
+.service-item:hover .service-icon1 {
     background-color: #574dcf;
     color: white !important;
 }
-.hover-text{
+
+.hover-text {
     transition: .3s all linear;
 }
-.service-item:hover .hover-text{
+
+.service-item:hover .hover-text {
     color: #574dcf;
 }
 
@@ -161,9 +198,6 @@ input:focus,select:focus,textarea:focus{
     background-color:
         color-mix(in srgb, #5d57f4, transparent 90%);
     color: #5d57f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-right: 1.5rem;
     transition: all 0.5s ease;
 }
@@ -199,7 +233,8 @@ input:focus,select:focus,textarea:focus{
     transition: .3s all linear;
     color: #5d57f4;
 }
-.bg-btn:hover{
+
+.bg-btn:hover {
     background-color: #5d57f4 !important;
     color: white;
 }
@@ -207,21 +242,12 @@ input:focus,select:focus,textarea:focus{
 .faq-contact-card {
     background: linear-gradient(135deg, #5d57f4,
             color-mix(in srgb, #5d57f4, #32353a 30%));
-    border-radius: 10px;
     padding: 40px 30px;
-    display: flex;
-    flex-direction: column;
-    color: #ffffff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .contact-option {
-    display: flex;
-    align-items: center;
     background-color: rgba(255, 255, 255, 0.15);
     padding: 15px 20px;
-    border-radius: 8px;
-    color: #fff;
     transition: all 0.3s ease;
 }
 
@@ -252,9 +278,6 @@ input:focus,select:focus,textarea:focus{
     width: 50px;
     background-color: #f8f8fb;
     border-right: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #6c63ff;
 }
 
@@ -325,15 +348,16 @@ input:focus,select:focus,textarea:focus{
 }
 
 .step-icon {
-    width: 60px;
-    height: 60px;
-    background-color: #5d5dff ;
+    width: 70px;
+    height: 70px;
+    background-color: #5d5dff;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 16px;
     margin-right: 20px;
+    transition: .2s all linear;
 }
 
 .icon-inner {
@@ -349,22 +373,87 @@ input:focus,select:focus,textarea:focus{
     color: #555;
     font-size: 15px;
 }
-.hover-btn{
+
+.hover-btn {
     transition: .3s all linear;
 }
-.hover-btn:hover{
+
+.hover-btn:hover {
     background-color: #5c57f4a2;
     transform: translateY(-3px);
 }
-.hover-title{
+
+.hover-title {
     transition: .3s all linear;
     cursor: pointer;
 }
-.hover-title:hover{
+
+.hover-title:hover {
     background-color: #807ddd;
     margin-left: 5px;
 }
-.hover-learn{
+
+.hover-learn {
     transition: .3s all linear;
     background-color: #574dcf;
+}
+
+.test-section .mySwiper {
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.test-section .mySwiper .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.swiper-pagination-bullet {
+    background-color: #5d57f4 !important
+}
+
+.process-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.content {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(145deg,
+            color-mix(in srgb, #5d57f4, transparent 95%), #fff);
+    border: 2px solid color-mix(in srgb, #5d57f4, transparent 85%);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .2s all linear, box-shadow 0.3s ease;
+}
+.content:hover{
+    background: white !important;
+    margin-left: 5px;
+}
+.content:hover .step-icon{
+     transform: rotate(30deg);
+}
+.content:hover .step-number{
+    top: 70%;
+    opacity: 1;
+}
+
+.step-number {
+    position: absolute;
+    left: -50px;
+    top: 55%;
+    transform: translateY(-50%);
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #5d57f4;
+    font-family: "Poppins", sans-serif !important;
+    line-height: 1;
+    opacity: 0.2;
+    transition: .2s all linear, opacity 0.3s ease;
 }

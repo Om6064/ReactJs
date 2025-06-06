@@ -12,7 +12,7 @@ const Contect = () => {
         {
             icon: "bi bi-telephone",
             title: "Contact Number",
-            des: "Mobile: +1 (555) 123-4567 Email: info@example.com"
+            des: "Mobile: +1 (555) 123-4567"
         },
         {
             icon: "bi bi-clock",

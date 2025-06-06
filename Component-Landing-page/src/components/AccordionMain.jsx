@@ -1,9 +1,9 @@
 import Accordion from 'react-bootstrap/Accordion';
 const AccordionMain = (props) => {
     return (
-        <div className='faq-item'>
+        <div className='faq-item hover-img'>
 
-                <Accordion className=''>
+                <Accordion className='pt-3'>
                 <Accordion.Item eventKey={`${props.idx}`} className='mb-3 border-0'>
 
                     <div className='m-0 acc'>
