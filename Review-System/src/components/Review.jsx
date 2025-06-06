@@ -12,12 +12,8 @@ const Review = () => {
     const [error, setError] = useState({});
     const inputRef = useRef(null);
     const [showCard, setShowCard] = useState(false);
-    const [reviews, setReviews] = useState(JSON.parse(localStorage.getItem("reviews")) || []);
+    const [reviews, setReviews] = useState([]);
     const [editIndex, setEditIndex] = useState(null);
-
-    useEffect(() => {
-        localStorage.setItem("reviews", JSON.stringify(reviews));
-    }, [reviews]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
