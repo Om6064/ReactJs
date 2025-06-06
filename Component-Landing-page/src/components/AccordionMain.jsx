@@ -6,7 +6,7 @@ const AccordionMain = (props) => {
                 <Accordion className=''>
                 <Accordion.Item eventKey={`${props.idx}`} className='mb-3 border-0'>
 
-                    <div className='m-0'>
+                    <div className='m-0 acc'>
                         <Accordion.Header>{props.qus}</Accordion.Header>
                     </div>
 

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "./Card";
 
@@ -12,7 +12,12 @@ const Review = () => {
     const [error, setError] = useState({});
     const inputRef = useRef(null);
     const [showCard, setShowCard] = useState(false);
-    const [reviews, setReviews] = useState([]);
+    const [reviews, setReviews] = useState(JSON.parse(localStorage.getItem("reviews")) || []);
+    const [editIndex, setEditIndex] = useState(null);
+
+    useEffect(() => {
+        localStorage.setItem("reviews", JSON.stringify(reviews));
+    }, [reviews]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,7 +46,14 @@ const Review = () => {
         setError(tempObj);
 
         if (Object.keys(tempObj).length === 0) {
-            setReviews([...reviews, text]);
+            if (editIndex !== null) {
+                const updatedReviews = [...reviews];
+                updatedReviews[editIndex] = text;
+                setReviews(updatedReviews);
+                setEditIndex(null);
+            } else {
+                setReviews([...reviews, text]);
+            }
             setText({ name: "", date: "", star: "", review: "" });
             setShowCard(true);
         }
@@ -50,6 +62,19 @@ const Review = () => {
     const handleChange = (e) => {
         setText({ ...text, [e.target.id]: e.target.value });
         setError({ ...error, [e.target.id]: "" });
+    };
+
+    const deleteReview = (index) => {
+        const newReviews = [...reviews];
+        newReviews.splice(index, 1);
+        setReviews(newReviews);
+    };
+
+
+    const editReview = (index) => {
+        setText(reviews[index]);
+        setEditIndex(index);
+        setShowCard(false);
     };
 
     return (
@@ -151,7 +176,8 @@ const Review = () => {
                     <div>
                         <div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 py-8">
                             {reviews.map((review, index) => (
-                                <Card key={index} textObj={review} />
+                                <Card key={index} textObj={review} onDelete={() => deleteReview(index)}
+                                    onEdit={() => editReview(index)} />
                             ))}
                         </div>
 

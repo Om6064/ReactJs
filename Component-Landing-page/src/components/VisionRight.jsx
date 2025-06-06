@@ -27,7 +27,7 @@ const VisionRight = () => {
             <div className="d-flex gap-4">
                 <Button title="Get Started" padding="3" />
                 <button className="bg-transparent bg-btn p-3 rounded">
-                    <p className="color-main fw-semibold m-0">Learn More</p>
+                    <p className="fw-semibold m-0">Learn More</p>
                 </button>
             </div>
         </div>

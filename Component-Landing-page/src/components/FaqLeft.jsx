@@ -8,18 +8,18 @@ const FaqLeft = () => {
                 <h3 className="fw-bold mb-3">Still Have Questions?</h3>
                 <p className="mb-4">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ac diam sit amet quam vehicula elementum.</p>
                 <div class="contact-options">
-                    <a href="#" class="contact-option mb-3">
+                    <div class="contact-option d-flex gap-3 hover-title mb-3">
                         <i class="bi bi-envelope"></i>
                         <span>Email Support</span>
-                    </a>
-                    <a href="#" class="contact-option mb-3">
+                    </div>
+                    <div class="contact-option d-flex gap-3 hover-title mb-3">
                         <i class="bi bi-chat-dots"></i>
                         <span>Live Chat</span>
-                    </a>
-                    <a href="#" class="contact-option mb-3">
+                    </div>
+                    <div class="contact-option d-flex gap-3 hover-title mb-3">
                         <i class="bi bi-telephone"></i>
                         <span>Call Us</span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

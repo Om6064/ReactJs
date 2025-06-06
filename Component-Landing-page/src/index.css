@@ -58,8 +58,18 @@
     aspect-ratio: 1;
     background-color: #eeeefd;
 }
-
-
+input:focus,select:focus,textarea:focus{
+    box-shadow: none !important;
+}
+.acc .accordion-button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+}
 
 .color-main {
     color: #5d57f4;
@@ -103,6 +113,7 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
      /* border-left: 3px solid #574dcf !important; */
     transition: all 0.4s ease;
+    cursor: pointer;
 }
 .service-item::after {
     content: "";
@@ -126,7 +137,20 @@
 .service-item:hover .service-icon{
     transform: scaleX(-1);
     background-color: #574dcf;
-    color: white;
+    color: white !important;
+}
+.service-icon1{
+    color: #574dcf;
+}
+.service-item:hover .service-icon1{
+    background-color: #574dcf;
+    color: white !important;
+}
+.hover-text{
+    transition: .3s all linear;
+}
+.service-item:hover .hover-text{
+    color: #574dcf;
 }
 
 .service-icon {
@@ -171,7 +195,13 @@
 }
 
 .bg-btn {
-    border: 1px solid #5d57f4 !important;
+    border: 1px solid #5d57f4;
+    transition: .3s all linear;
+    color: #5d57f4;
+}
+.bg-btn:hover{
+    background-color: #5d57f4 !important;
+    color: white;
 }
 
 .faq-contact-card {
@@ -325,4 +355,16 @@
 .hover-btn:hover{
     background-color: #5c57f4a2;
     transform: translateY(-3px);
+}
+.hover-title{
+    transition: .3s all linear;
+    cursor: pointer;
+}
+.hover-title:hover{
+    background-color: #807ddd;
+    margin-left: 5px;
+}
+.hover-learn{
+    transition: .3s all linear;
+    background-color: #574dcf;
 }

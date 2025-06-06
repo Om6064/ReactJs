@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 const TeamCard = (props) => {
     return (
         <div className="col-md-6 col-xl-3">
-            <Card className='shadow border-0'>
+            <Card className='shadow border-0 hover-img'>
                 <Card.Img variant="top" src={`${props.img}`} />
                 <Card.Body>
                     <Card.Title className='text-center mb-2 fw-bold'>{props.name}</Card.Title>
