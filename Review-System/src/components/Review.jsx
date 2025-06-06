@@ -186,7 +186,7 @@ const Review = () => {
                                     setShowCard(false);
                                 }}
                             >
-                                Previous
+                                Back
                             </button>
                         </div>
                     </div>
