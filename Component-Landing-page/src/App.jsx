@@ -16,6 +16,7 @@ import TestimonialsMain from './components/TestimonialsMain';
 import Contect from './components/Contect';
 import Footer from './components/Footer';
 import WorkSteps from './components/WorkSteps';
+import PortfolioSec from './components/PortfolioSec';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
       <Service/>
       <HeroSec left={<ServiceLeft/>} right={<ServiceRight/>}/>
       <Vistion left={<VisionLeft/>} right={<VisionRight/>}/>
+      <PortfolioSec/>
       <HeroSec left={<FaqLeft/>} right={<FaqRight/>}/>
       <Team/>
       <TestimonialsMain/>
