@@ -53,7 +53,7 @@ const ContactForm = () => {
             </div>
           </Col>
           <Col xs={12} className="text-center pt-3">
-            <Button type="button" className="btn-submit p-3 fw-semibold">
+            <Button type="button" className="btn-submit hover-btn p-3 fw-semibold">
               Submit Message
             </Button>
           </Col>
