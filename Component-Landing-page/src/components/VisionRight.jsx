@@ -17,11 +17,11 @@ const VisionRight = () => {
             </p>
             <div className="mt-2 mb-4">
                 <div>
-                    <p className="m-0">
-                        {arr.map((item) => {
-                            return <SubAbout title={item.title} />
+                    <div className="m-0">
+                        {arr.map((item,idx) => {
+                            return <SubAbout key={idx} title={item.title} />
                         })}
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="d-flex gap-4">

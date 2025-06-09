@@ -24,7 +24,7 @@ const FaqRight = () => {
     return (
         <div>
             {arr.map((item, idx) => {
-                return <AccordionMain qus= {item.qustion} ans={item.ans} idx={idx}/>
+                return <AccordionMain key={idx} qus= {item.qustion} ans={item.ans} idx={idx}/>
             })}
         </div>
     )

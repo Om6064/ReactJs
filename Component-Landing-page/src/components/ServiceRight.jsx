@@ -26,8 +26,8 @@ const ServiceRight = () => {
   return (
     <div>
 
-      {arr.map((items) => {
-        return <SubService icon={items.icon} title={items.title} des={items.des} />
+      {arr.map((items,idx) => {
+        return <SubService key={idx} icon={items.icon} title={items.title} des={items.des} />
       })}
     </div>
 

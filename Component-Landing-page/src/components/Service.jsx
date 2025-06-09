@@ -39,8 +39,8 @@ const Service = () => {
       <div className="container">
         <Title main="Services" sub="Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit" />
         <div className="row justify-content-between mt-5">
-          {arr.map((items) => {
-            return <ServiceCard title={items.title} des={items.des} icon={items.icon} />
+          {arr.map((items,idx) => {
+            return <ServiceCard key={idx} title={items.title} des={items.des} icon={items.icon} />
           })}
         </div>
       </div>

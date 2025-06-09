@@ -478,3 +478,8 @@ textarea:focus {
 .pointer{
     cursor: pointer;
 }
+@media (max-width: 600px) {
+    .cta-pattern{
+        display: none;
+    }
+}

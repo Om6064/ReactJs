@@ -34,8 +34,8 @@ const Team = () => {
                     <div>
                         <div className="row gy-5">
             
-                                {arr.map((items) => {
-                                    return <TeamCard img={items.img} name={items.name} role={items.role}/>
+                                {arr.map((items,idx) => {
+                                    return <TeamCard key={idx} img={items.img} name={items.name} role={items.role}/>
                                 })}
                             
                         </div>
