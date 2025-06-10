@@ -109,9 +109,8 @@ const PortfolioSec = () => {
           {filters.map(({ label, key }) => (
             <li key={key} onClick={() => setFilterKey(key)}>
               <p
-                className={`text-body-secondary fw-semibold pointer ${
-                  filterKey === key ? "active" : ""
-                }`}
+                className={`text-body-secondary fw-semibold pointer ${filterKey === key ? "active" : ""
+                  }`}
               >
                 {label}
               </p>
@@ -125,7 +124,7 @@ const PortfolioSec = () => {
               key={index}
               className={`col-lg-4 col-md-6 col-sm-12 grid-item ${item.category}`}
             >
-              <div className="border rounded shadow-sm overflow-hidden h-100 d-flex flex-column justify-content-between">
+              <div className="portfolio-card shadow h-100">
                 {item.comingSoon ? (
                   <div className="p-4 text-center">
                     <h4>Coming Soon</h4>
@@ -137,12 +136,12 @@ const PortfolioSec = () => {
                         src={item.img}
                         alt={item.title}
                         className="img-fluid w-100"
-                        style={{ objectFit: "cover", height: "250px" }}
+                        style={{ height: "250px", objectFit: "cover" }}
                       />
                     </a>
-                    <div className="p-3">
-                      <h5>{item.title}</h5>
-                      <p className="text-muted">{item.description}</p>
+                    <div className="portfolio-info">
+                      <h5 className="mb-1">{item.title}</h5>
+                      <p className="mb-0">{item.description}</p>
                     </div>
                   </>
                 )}
