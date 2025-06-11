@@ -1,14 +1,15 @@
 import { useRef, useState } from "react";
 
-
-
-const Form = () => {
+const Form = ({ addUser }) => {
     const [text, setText] = useState({
         name: "",
         email: "",
         course: "",
-        review: ""
+        password: "",
+        confirmPassword: "",
+        gender: ""
     });
+
     const [error, setError] = useState({});
     const inputRef = useRef(null);
 
@@ -17,44 +18,63 @@ const Form = () => {
 
         let tempObj = {};
 
-        if (!text.name || text.name.trim() === "") {
-            tempObj.name = "Please Enter The Name";
+        if (!text.name.trim()) {
+            tempObj.name = "Please enter your name";
         }
 
-        if (!text.date || text.date.trim() === "") {
-            tempObj.date = "Please Enter The Date";
+        if (!text.course.trim()) {
+            tempObj.course = "Please select a course";
         }
 
-        if (text.star === undefined || text.star === null || text.star === "") {
-            tempObj.star = "Please Enter The Course";
-        }
-        let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-        if (text.email.trim() === "" || !emailRegex.test(text.email)) {
-            tempObj.email = "Please Enter The Appropriate Email";
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!text.email.trim() || !emailRegex.test(text.email)) {
+            tempObj.email = "Please enter a valid email";
         }
 
-        if (!text.review || text.review.trim() === "") {
-            tempObj.review = "Please Enter The Review";
+
+        if (text.gender == "" || text.gender == undefined || text.gender == null) {
+            tempObj.gender = "Please select your gender";
+        }
+
+        if (!text.password.trim()) {
+            tempObj.password = "Please enter a password";
+        } else if (text.password.length < 8) {
+            tempObj.password = "Password must be at least 8 characters";
+        }
+
+        if (text.confirmPassword !== text.password) {
+            tempObj.confirmPassword = "Passwords do not match";
         }
 
         setError(tempObj);
 
-        if (Object.keys(tempObj).length === 0) {
+        if (Object.keys(tempObj).length > 0) {
             return;
         }
+
+        const updatedUsers = { ...text, id: Date.now() }
+        addUser(updatedUsers)
+        setText({
+            name: "",
+            email: "",
+            course: "",
+            password: "",
+            confirmPassword: "",
+            gender: ""
+        });
+
     };
 
     const handleChange = (e) => {
-        setText({ ...text, [e.target.id]: e.target.value });
-        setError({ ...error, [e.target.id]: "" });
+        setText({ ...text, [e.target.id]: e.target.value })
+        setError({...error,[e.target.id] : ""})
     };
+    console.log(text);
 
 
     return (
         <div className="bg-slate-100">
-            <div className="container mx-auto px-4 min-h-screen  flex items-center justify-center">
-
+            <div className="container mx-auto px-4 min-h-screen flex items-center justify-center">
                 <form
                     className="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full"
                     onSubmit={handleSubmit}
@@ -64,89 +84,102 @@ const Form = () => {
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="mb-5">
-                            <label htmlFor="name" className={`block  text-sm ${!error.name ? "text-gray-600" : "text-red-600"}`}>Name</label>
+                            <label htmlFor="name" className={`block text-sm ${error.name ? "text-red-600" : "text-gray-600"}`}>Name</label>
                             <input
                                 onChange={handleChange}
                                 value={text.name}
                                 type="text"
-                                name="name"
                                 id="name"
-                                className={`w-full border-b-2 focus:border-blue-600 outline-none p-2 ${!error.name ? "border-gray-300" : "border-red-300"}`}
+                                className={`w-full border-b-2 outline-none p-2 ${error.name ? "border-red-300" : "border-gray-300"}`}
                             />
                             {error.name && <p className="text-red-500 text-sm mt-1">{error.name}</p>}
                         </div>
+
                         <div className="mb-5">
-                            <label htmlFor="course" className={`block  text-sm ${!error.course ? "text-gray-600" : "text-red-600"}`}>Course</label>
+                            <label htmlFor="course" className={`block text-sm ${error.course ? "text-red-600" : "text-gray-600"}`}>Course</label>
                             <select
                                 onChange={handleChange}
                                 value={text.course}
-                                name="course"
                                 id="course"
-                                className={`w-full border-b-2 focus:border-blue-600 outline-none p-2 ${!error.star ? "border-gray-300" : "border-red-300"}`}
+                                className={`w-full border-b-2 outline-none p-2 ${error.course ? "border-red-300" : "border-gray-300"}`}
                             >
                                 <option value="">--Select Course--</option>
-                                <option value="1">Full Stack Development</option>
-                                <option value="2">Ui/Ux</option>
-                                <option value="3">Ai/Ml/Ds</option>
+                                <option value="Full Stack Development">Full Stack Development</option>
+                                <option value="Ui/Ux">Ui/Ux</option>
+                                <option value="Ai/Ml/Ds">Ai/Ml/Ds</option>
                             </select>
-                            {error.star && <p className="text-red-500 text-sm mt-1">{error.star}</p>}
+                            {error.course && <p className="text-red-500 text-sm mt-1">{error.course}</p>}
                         </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="mb-5">
-                            <label htmlFor="email" className={`block  text-sm ${!error.email ? "text-gray-600" : "text-red-600"}`}>Email</label>
+                            <label htmlFor="email" className={`block text-sm ${error.email ? "text-red-600" : "text-gray-600"}`}>Email</label>
                             <input
                                 onChange={handleChange}
                                 value={text.email}
                                 type="text"
-                                name="email"
                                 id="email"
-                                className={`w-full border-b-2 focus:border-blue-600 outline-none p-2 ${!error.email ? "border-gray-300" : "border-red-300"}`}
+                                className={`w-full border-b-2 outline-none p-2 ${error.email ? "border-red-300" : "border-gray-300"}`}
                             />
                             {error.email && <p className="text-red-500 text-sm mt-1">{error.email}</p>}
                         </div>
-
-                        <div className="flex">
-                            <div className="flex items-center me-4">
-                                <input id="male" type="radio" defaultValue name="inline-radio-group" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
-                                <label htmlFor="male" className="ms-2 text-sm font-medium text-gray-900">Male</label>
+                        <div className="mb-5">
+                            <label className={`block text-sm ${error.gender ? "text-red-600" : "text-gray-600"}`}>Gender</label>
+                            <div className="flex items-center gap-4 mt-2">
+                                <label className="flex items-center">
+                                    <input
+                                        type="radio"
+                                        id="gender"
+                                        value="Male"
+                                        onChange={handleChange}
+                                        checked={text.gender === "Male"}
+                                        className="mr-2"
+                                    />
+                                    Male
+                                </label>
+                                <label className="flex items-center">
+                                    <input
+                                        type="radio"
+                                        id="gender"
+                                        value="Female"
+                                        onChange={handleChange}
+                                        checked={text.gender === "Female"}
+                                        className="mr-2"
+                                    />
+                                    Female
+                                </label>
                             </div>
-                            <div className="flex items-center me-4">
-                                <input id="female" type="radio" defaultValue name="inline-radio-group" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" />
-                                <label htmlFor="female" className="ms-2 text-sm font-medium text-gray-900">Female</label>
-                            </div>
+                            {error.gender && <p className="text-red-500 text-sm mt-1">{error.gender}</p>}
                         </div>
+
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="mb-5">
-                            <label htmlFor="password" className={`block  text-sm ${!error.password ? "text-gray-600" : "text-red-600"}`}>password</label>
+                            <label htmlFor="password" className={`block text-sm ${error.password ? "text-red-600" : "text-gray-600"}`}>Password</label>
                             <input
                                 onChange={handleChange}
                                 value={text.password}
                                 type="password"
-                                name="password"
                                 id="password"
-                                className={`w-full border-b-2 focus:border-blue-600 outline-none p-2 ${!error.password ? "border-gray-300" : "border-red-300"}`}
+                                className={`w-full border-b-2 outline-none p-2 ${error.password ? "border-red-300" : "border-gray-300"}`}
                             />
                             {error.password && <p className="text-red-500 text-sm mt-1">{error.password}</p>}
                         </div>
+
                         <div className="mb-5">
-                            <label htmlFor="confirmPassword" className={`block  text-sm ${!error.confirmPassword ? "text-gray-600" : "text-red-600"}`}>confirmPassword</label>
+                            <label htmlFor="confirmPassword" className={`block text-sm ${error.confirmPassword ? "text-red-600" : "text-gray-600"}`}>Confirm Password</label>
                             <input
                                 onChange={handleChange}
                                 value={text.confirmPassword}
                                 type="password"
-                                name="confirmPassword"
                                 id="confirmPassword"
-                                className={`w-full border-b-2 focus:border-blue-600 outline-none p-2 ${!error.confirmPassword ? "border-gray-300" : "border-red-300"}`}
+                                className={`w-full border-b-2 outline-none p-2 ${error.confirmPassword ? "border-red-300" : "border-gray-300"}`}
                             />
                             {error.confirmPassword && <p className="text-red-500 text-sm mt-1">{error.confirmPassword}</p>}
                         </div>
-
                     </div>
-
 
 
                     <div className="flex gap-4">
@@ -164,9 +197,8 @@ const Form = () => {
                         </button>
                     </div>
                 </form>
-
-            </div >
-        </div >
+            </div>
+        </div>
     );
 };
 

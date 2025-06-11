@@ -4,7 +4,7 @@ import swal from "sweetalert";
 
 const Todo = () => {
   const inputRef = useRef(null);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
   const [filter, setFilter] = useState("all");
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [textValue, setTextValue] = useState("");
@@ -12,6 +12,10 @@ const Todo = () => {
   const handleInputChange = (e) => {
     setTextValue(e.target.value);
   };
+
+  useEffect(() => {
+      localStorage.setItem("tasks",JSON.stringify(tasks))
+  },[tasks])
 
   const addTask = () => {
     const input = inputRef.current;
