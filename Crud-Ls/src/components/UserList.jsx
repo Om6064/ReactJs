@@ -1,22 +1,54 @@
 const UserList = ({ users }) => {
     return (
-        <div className="p-6">
-            <h2 className="text-xl font-bold mb-4">Registered Users</h2>
-            {users.length === 0 ? (
-                <p>No users found.</p>
-            ) : (
-                <ul className="space-y-4">
-                    {users.map((user, index) => (
-                        <li key={index} className="border p-4 rounded shadow">
-                            <p><strong>Name:</strong> {user.name}</p>
-                            <p><strong>Email:</strong> {user.email}</p>
-                            <p><strong>Course:</strong> {user.course}</p>
-                            <p><strong>Gender:</strong> {user.gender}</p>
-                        </li>
-                    ))}
-                </ul>
-            )}
+
+
+        <div className="container mx-auto">
+            <div class="overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-black uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Course
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Gender
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map((item,idx)=>{
+                        return <tr key={idx} class="odd:bg-white  even:bg-gray-50  border-b  border-gray-200">
+                        <td  class="px-6 py-4 text-black ">
+                            {item.name}
+                        </td>
+                        <td class="px-6 py-4 text-black">
+                            {item.course}
+                        </td>
+                        <td class="px-6 py-4 text-black">
+                            {item.email}
+                        </td>
+                        <td class="px-6 py-4 text-black">
+                            {item.gender}
+                        </td>
+                        <td class="px-6 py-4 text-black">
+                            <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                        </td>
+                    </tr>
+                    })}
+                </tbody>
+            </table>
         </div>
+        </div>
+
     );
 };
 
