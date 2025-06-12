@@ -21,6 +21,13 @@ const Form = ({ addUser }) => {
         if (!text.name.trim()) {
             tempObj.name = "Please enter your name";
         }
+        if (text.course == "1") {
+            text.course = "Full Stack Development"
+        }else if(text.course == "2"){
+            text.course = "ui/ux"
+        }else{
+            text.course = "Ai/Ml/Ds"
+        }
 
         if (!text.course.trim()) {
             tempObj.course = "Please select a course";
@@ -73,14 +80,14 @@ const Form = ({ addUser }) => {
 
 
     return (
-        <div className="bg-slate-100">
-            <div className="container mx-auto px-4 min-h-screen flex items-center justify-center">
+        <div className="bg-slate-100 py-10">
+            <div className="container mx-auto px-4 flex items-center justify-center">
                 <form
                     className="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full"
                     onSubmit={handleSubmit}
                     ref={inputRef}
                 >
-                    <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">Leave a Review</h2>
+                    <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">Student Mangement System</h2>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="mb-5">
@@ -104,9 +111,9 @@ const Form = ({ addUser }) => {
                                 className={`w-full border-b-2 outline-none p-2 ${error.course ? "border-red-300" : "border-gray-300"}`}
                             >
                                 <option value="">--Select Course--</option>
-                                <option value="Full Stack Development">Full Stack Development</option>
-                                <option value="Ui/Ux">Ui/Ux</option>
-                                <option value="Ai/Ml/Ds">Ai/Ml/Ds</option>
+                                <option value="1">Full Stack Development</option>
+                                <option value="2">Ui/Ux</option>
+                                <option value="3">Ai/Ml/Ds</option>
                             </select>
                             {error.course && <p className="text-red-500 text-sm mt-1">{error.course}</p>}
                         </div>
@@ -182,20 +189,14 @@ const Form = ({ addUser }) => {
                     </div>
 
 
-                    <div className="flex gap-4">
-                        <button
-                            type="button"
-                            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-                        >
-                            Show Data
-                        </button>
+                    
                         <button
                             type="submit"
                             className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
                         >
                             Submit
                         </button>
-                    </div>
+    
                 </form>
             </div>
         </div>
