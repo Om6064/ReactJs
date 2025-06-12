@@ -39,8 +39,8 @@ const Form = ({ addUser, editedUser }) => {
             tempObj.name = "Please enter your name";
         }
 
-       
-        if (text.course == "" || text.course == null || text.course == undefined){
+
+        if (text.course == "" || text.course == null || text.course == undefined) {
             tempObj.course = "Please select a course";
         }
 
@@ -71,7 +71,11 @@ const Form = ({ addUser, editedUser }) => {
         }
 
         const updatedUsers = { ...text, id: Date.now() }
-        addUser(updatedUsers)
+        if (editedUser) {
+            addUser(text)
+        } else {
+            addUser(updatedUsers)
+        }
         setText({
             name: "",
             email: "",

@@ -6,18 +6,18 @@ const UserList = ({ users, deleteUser, getEditUser }) => {
         getEditUser(user)
     }
 
-    // const getCourse = (course) => {
-    //     switch (course) {
-    //         case "1":
-    //             return "Full Stack Development";
-    //         case "2":
-    //             return "UI/UX";
-    //         case "3":
-    //             return "AI/ML/DS";
-    //         default:
-    //             return "Unknown Course"; // For debugging
-    //     }
-    // };
+    const getCourse = (course) => {
+        switch (course) {
+            case 1:
+                return "Full Stack Development"
+            case 2:
+                return "UI/UX"
+            case 3:
+                return "AI/ML/DS"
+            default:
+                return "Unknown Course";
+        }
+    };
 
     return (
 
@@ -51,8 +51,8 @@ const UserList = ({ users, deleteUser, getEditUser }) => {
                                         {item.name}
                                     </td>
                                     <td class="px-6 py-4 text-black">
-                                        {item.course}
-                                        {/* {getCourse(item.course)} */}
+                                        {/* {item.course} */}
+                                        {getCourse(Number(item.course))}
                                     </td>
                                     <td class="px-6 py-4 text-black">
                                         {item.email}
