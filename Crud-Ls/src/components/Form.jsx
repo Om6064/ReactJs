@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Form = ({ addUser, editedUser }) => {
     const [text, setText] = useState({
@@ -11,7 +11,6 @@ const Form = ({ addUser, editedUser }) => {
     });
 
     const [error, setError] = useState({});
-    const inputRef = useRef(null);
 
     useEffect(() => {
         if (editedUser) {
@@ -100,9 +99,8 @@ const Form = ({ addUser, editedUser }) => {
                 <form
                     className="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full"
                     onSubmit={handleSubmit}
-                    ref={inputRef}
                 >
-                    <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">Student Mangement System</h2>
+                    <h2 className={`text-2xl font-bold text-center mb-6 ${editedUser ? "text-yellow-500": "text-blue-700"}`}>Student Mangement System</h2>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="mb-5">
@@ -209,9 +207,10 @@ const Form = ({ addUser, editedUser }) => {
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+                        className={`w-full  text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ${editedUser ? "bg-yellow-500 hover:bg-yellow-600" : "bg-blue-700 hover:bg-blue-800" }`}
                     >
-                        Submit
+                        {editedUser ? "Update" : "Submit"}
+
                     </button>
 
                 </form>

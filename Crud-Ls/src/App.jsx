@@ -49,7 +49,7 @@ const App = () => {
     return (
         <div>
             <Form addUser={addUser} editedUser={editedUser} />
-            <UserList users={users} deleteUser={deleteUser} getEditUser={getEditUser} UpdateUser={UpdateUser} />
+            <UserList users={users} deleteUser={deleteUser} getEditUser={getEditUser} UpdateUser={UpdateUser}  />
         </div>
     );
 };
