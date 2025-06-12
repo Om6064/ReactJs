@@ -1,4 +1,24 @@
-const UserList = ({ users }) => {
+const UserList = ({ users, deleteUser, getEditUser }) => {
+    const handleDelete = (userId) => {
+        deleteUser(userId)
+    }
+    const handleEdit = (user) => {
+        getEditUser(user)
+    }
+
+    // const getCourse = (course) => {
+    //     switch (course) {
+    //         case "1":
+    //             return "Full Stack Development";
+    //         case "2":
+    //             return "UI/UX";
+    //         case "3":
+    //             return "AI/ML/DS";
+    //         default:
+    //             return "Unknown Course"; // For debugging
+    //     }
+    // };
+
     return (
 
         <div className="bg-slate-100 h-[459px] overflow-y-auto">
@@ -25,13 +45,14 @@ const UserList = ({ users }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {users.map((item, idx) => {
-                                return <tr key={idx} class="odd:bg-white  even:bg-gray-50  border-b  border-gray-200">
+                            {users.map((item) => {
+                                return <tr key={item.id} class="odd:bg-white  even:bg-gray-50  border-b  border-gray-200">
                                     <td class="px-6 py-4 text-black ">
                                         {item.name}
                                     </td>
                                     <td class="px-6 py-4 text-black">
                                         {item.course}
+                                        {/* {getCourse(item.course)} */}
                                     </td>
                                     <td class="px-6 py-4 text-black">
                                         {item.email}
@@ -40,7 +61,14 @@ const UserList = ({ users }) => {
                                         {item.gender}
                                     </td>
                                     <td class="px-6 py-4 text-black">
-                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        <div className="flex gap-5">
+                                            <button class="font-medium text-blue-600 hover:underline" onClick={() => {
+                                                handleEdit(item)
+                                            }}>Edit</button>
+                                            <button class="font-medium text-red-600 hover:underline" onClick={() => {
+                                                handleDelete(item.id)
+                                            }}>Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                             })}

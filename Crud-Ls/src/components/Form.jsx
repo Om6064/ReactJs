@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const Form = ({ addUser }) => {
+const Form = ({ addUser, editedUser }) => {
     const [text, setText] = useState({
         name: "",
         email: "",
@@ -13,6 +13,23 @@ const Form = ({ addUser }) => {
     const [error, setError] = useState({});
     const inputRef = useRef(null);
 
+    useEffect(() => {
+        if (editedUser) {
+            setText(editedUser)
+        } else {
+            setText(
+                {
+                    name: "",
+                    email: "",
+                    course: "",
+                    password: "",
+                    confirmPassword: "",
+                    gender: ""
+                }
+            )
+        }
+    }, [editedUser])
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -22,14 +39,9 @@ const Form = ({ addUser }) => {
             tempObj.name = "Please enter your name";
         }
 
-        if (text.course == "1") {
-            text.course = "Full Stack Development"
-        }else if(text.course == "2"){
-            text.course = "ui/ux"
-        }else if(text.course == "3"){
-            text.course = "Ai/Ml/Ds"
-        }else{
-             tempObj.course = "Please select a course";
+       
+        if (text.course == "" || text.course == null || text.course == undefined){
+            tempObj.course = "Please select a course";
         }
 
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -73,7 +85,7 @@ const Form = ({ addUser }) => {
 
     const handleChange = (e) => {
         setText({ ...text, [e.target.id]: e.target.value })
-        setError({...error,[e.target.id] : ""})
+        setError({ ...error, [e.target.id]: "" })
     };
     console.log(text);
 
@@ -190,14 +202,14 @@ const Form = ({ addUser }) => {
                     </div>
 
 
-                    
-                        <button
-                            type="submit"
-                            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-                        >
-                            Submit
-                        </button>
-    
+
+                    <button
+                        type="submit"
+                        className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+                    >
+                        Submit
+                    </button>
+
                 </form>
             </div>
         </div>
