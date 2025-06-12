@@ -21,16 +21,15 @@ const Form = ({ addUser }) => {
         if (!text.name.trim()) {
             tempObj.name = "Please enter your name";
         }
+
         if (text.course == "1") {
             text.course = "Full Stack Development"
         }else if(text.course == "2"){
             text.course = "ui/ux"
-        }else{
+        }else if(text.course == "3"){
             text.course = "Ai/Ml/Ds"
-        }
-
-        if (!text.course.trim()) {
-            tempObj.course = "Please select a course";
+        }else{
+             tempObj.course = "Please select a course";
         }
 
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -142,6 +141,7 @@ const Form = ({ addUser }) => {
                                         onChange={handleChange}
                                         checked={text.gender === "Male"}
                                         className="mr-2"
+                                        name="gender"
                                     />
                                     Male
                                 </label>
@@ -153,6 +153,7 @@ const Form = ({ addUser }) => {
                                         onChange={handleChange}
                                         checked={text.gender === "Female"}
                                         className="mr-2"
+                                        name="gender"
                                     />
                                     Female
                                 </label>
