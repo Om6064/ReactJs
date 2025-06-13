@@ -29,6 +29,9 @@ const App = () => {
             return user.id !== userId
         })
         setUsers(newUsers)
+        if (userId == editedUser.id) {
+            setEditedUser(null)
+        }
     }
 
     const getEditUser = (user) => {
