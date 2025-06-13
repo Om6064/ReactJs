@@ -65,6 +65,7 @@ const UserList = ({ users, deleteUser, getEditUser }) => {
                                             <div className="flex gap-5">
                                                 <button class="font-medium text-blue-600 hover:underline" onClick={() => {
                                                     handleEdit(item)
+                                                    
                                                 }}>Edit</button>
                                                 <button class="font-medium text-red-600 hover:underline" onClick={() => {
                                                     handleDelete(item.id)

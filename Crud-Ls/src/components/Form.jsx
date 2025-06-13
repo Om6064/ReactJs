@@ -15,6 +15,7 @@ const Form = ({ addUser, editedUser }) => {
 
     useEffect(() => {
         if (editedUser) {
+            setError({})
             setText(editedUser)
         } else {
             setText(
@@ -84,6 +85,7 @@ const Form = ({ addUser, editedUser }) => {
             } else {
                 toast.error("Please Update The User");
             }
+            
 
         } else {
             const updatedUsers = { ...text, id: Date.now() };
@@ -128,7 +130,7 @@ const Form = ({ addUser, editedUser }) => {
                                 id="name"
                                 className={`w-full border-b-2 outline-none p-2 ${error.name ? "border-red-300" : "border-gray-300"}`}
                             />
-                            {error.name && <p className="text-red-500 text-sm mt-1">{error.name}</p>}
+                            {error.name && (<p className="text-red-500 text-sm mt-1">{error.name}</p>)}
                         </div>
 
                         <div className="mb-5">
