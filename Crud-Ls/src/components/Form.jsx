@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 const Form = ({ addUser, editedUser }) => {
     const [text, setText] = useState({
@@ -69,12 +70,27 @@ const Form = ({ addUser, editedUser }) => {
             return;
         }
 
-        const updatedUsers = { ...text, id: Date.now() }
         if (editedUser) {
-            addUser(text)
+            addUser(text);
+            if (
+                text.name !== editedUser.name ||
+                text.email !== editedUser.email ||
+                text.course !== editedUser.course ||
+                text.gender !== editedUser.gender ||
+                text.password !== editedUser.password ||
+                text.confirmPassword !== editedUser.confirmPassword
+            ) {
+                toast.warn("User Updated Successfully");
+            } else {
+                toast.error("Please Update The User");
+            }
+
         } else {
-            addUser(updatedUsers)
+            const updatedUsers = { ...text, id: Date.now() };
+            addUser(updatedUsers);
+            toast.success("User Added Successfully");
         }
+
         setText({
             name: "",
             email: "",
@@ -100,7 +116,7 @@ const Form = ({ addUser, editedUser }) => {
                     className="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full"
                     onSubmit={handleSubmit}
                 >
-                    <h2 className={`text-2xl font-bold text-center mb-6 ${editedUser ? "text-yellow-500": "text-blue-700"}`}>Student Mangement System</h2>
+                    <h2 className={`text-2xl font-bold text-center mb-6 ${editedUser ? "text-yellow-500" : "text-blue-700"}`}>Student Mangement System</h2>
 
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="mb-5">
@@ -121,7 +137,7 @@ const Form = ({ addUser, editedUser }) => {
                                 onChange={handleChange}
                                 value={text.course}
                                 id="course"
-                                className={`w-full border-b-2 outline-none p-2 ${error.course ? "border-red-300" : "border-gray-300"}`}
+                                className={`w-full border-b-2 outline-none p-2  ${error.course ? "border-red-300" : "border-gray-300"}`}
                             >
                                 <option value="">--Select Course--</option>
                                 <option value="1">Full Stack Development</option>
@@ -154,7 +170,7 @@ const Form = ({ addUser, editedUser }) => {
                                         value="Male"
                                         onChange={handleChange}
                                         checked={text.gender === "Male"}
-                                        className="mr-2"
+                                        className="mr-2 w-4 h-4 appearance-none text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 rounded-full focus:ring-2 focus:ring-offset-1"
                                         name="gender"
                                     />
                                     Male
@@ -166,7 +182,7 @@ const Form = ({ addUser, editedUser }) => {
                                         value="Female"
                                         onChange={handleChange}
                                         checked={text.gender === "Female"}
-                                        className="mr-2"
+                                        className="mr-2 w-4 h-4 appearance-none text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 rounded-full focus:ring-2 focus:ring-offset-1"
                                         name="gender"
                                     />
                                     Female
@@ -207,13 +223,14 @@ const Form = ({ addUser, editedUser }) => {
 
                     <button
                         type="submit"
-                        className={`w-full  text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ${editedUser ? "bg-yellow-500 hover:bg-yellow-600" : "bg-blue-700 hover:bg-blue-800" }`}
+                        className={`w-full  text-white font-semibold py-2 px-4 rounded-lg transition duration-300 ${editedUser ? "bg-yellow-500 hover:bg-yellow-600" : "bg-blue-700 hover:bg-blue-800"}`}
                     >
                         {editedUser ? "Update" : "Submit"}
 
                     </button>
 
                 </form>
+                <ToastContainer />
             </div>
         </div>
     );
