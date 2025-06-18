@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-blue-50 py-20 px-4">
+      <section className="bg-blue-50 py-28 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Welcome to Flowbite</h1>
           <p className="text-gray-700 text-lg mb-8">
