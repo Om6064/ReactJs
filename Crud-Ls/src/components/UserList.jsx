@@ -25,7 +25,7 @@ const UserList = ({ users, deleteUser, getEditUser }) => {
             {users.length !== 0 ? (
                 <div className="bg-slate-100 h-[459px]">
                     <div className="container mx-auto h-full">
-                        <div className="h-full shadow-md sm:rounded-lg overflow-hidden">
+                        <div className="h-full  sm:rounded-lg overflow-hidden">
                             <div className="overflow-y-auto h-full scrollbar-hidden">
                                 <table className="w-full text-sm text-left text-gray-500">
                                     <thead className="text-black uppercase bg-gray-50 sticky top-0 z-10">
