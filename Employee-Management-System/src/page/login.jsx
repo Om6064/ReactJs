@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 
 const Login = ({ setIsLogedin }) => {
@@ -6,6 +7,7 @@ const Login = ({ setIsLogedin }) => {
         email: "",
         password: ""
     })
+    const navigate = useNavigate()
     const handleChange = (e) => {
         setInput({ ...input, [e.target.id]: e.target.value })
     }
@@ -17,37 +19,61 @@ const Login = ({ setIsLogedin }) => {
             toast.success("Logged In SuccesFully");
             setIsLogedin(true)
             localStorage.setItem("isloggedin", JSON.stringify(true))
+            navigate("/employees")
         } else {
             toast.error("Email Or Password Should Be Match")
         }
     }
 
     return (
-        <div>
-            <section className="bg-white">
-                <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-[90vh] lg:py-0">
-                    <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0 ">
-                        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-                            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                                Sign in to your account
-                            </h1>
-                            <form className="space-y-4 md:space-y-6 py-10" onSubmit={handleSubmit}>
-                                <div>
-                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">Your email</label>
-                                    <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " placeholder="name@company.com" required onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
-                                    <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 " required onChange={handleChange} />
-                                </div>
-
-                                <button type="submit" className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Sign in</button>
-                            </form>
+        <section className="bg-gray-100 min-h-screen flex items-center justify-center">
+            <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md transition-all duration-500">
+                <h2 className="text-2xl font-bold mb-6 text-center text-blue-600">Welcome Back 👋</h2>
+                <form onSubmit={handleSubmit} className="space-y-5">
+                    <div>
+                        <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-700">Email Address</label>
+                        <div className="relative">
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                onChange={handleChange}
+                                required
+                                className="w-full pl-10 p-2.5 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+                            />
+                            <span className="absolute left-3 top-2.5 text-gray-400">
+                                📧
+                            </span>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+
+                    <div>
+                        <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-700">Password</label>
+                        <div className="relative">
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="••••••••"
+                                onChange={handleChange}
+                                required
+                                className="w-full pl-10 p-2.5 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+                            />
+                            <span className="absolute left-3 top-2.5 text-gray-400">
+                                🔒
+                            </span>
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="w-full py-2.5 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition duration-300"
+                    >
+                        Sign In
+                    </button>
+                </form>
+            </div>
+        </section>
+
 
     )
 }

@@ -1,34 +1,31 @@
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
-const HeaderMain = () => {
+const HeaderMain = ({ isloggedin, setIsLogedin }) => {
     const navigate = useNavigate()
+    const handleClick = () => {
+        setIsLogedin(false)
+        localStorage.setItem("isloggedin", JSON.stringify(false))
+        toast.success("Logged Out SuccesFully");
+        navigate("/")
+    }
     return (
-        <nav className="bg-white  w-full start-0 border-b border-gray-200 ">
-            <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap ">Flowbite</span>
-                </Link>
-                <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                    <button onClick={() => {
-                        navigate("/login")
-                    }} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center ">Login</button>
-                </div>
-                <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                    <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
-                        <li>
-                            <Link to={"/"} className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</Link>
-                        </li>
-                        <li>
-                            <Link to={"/service"} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0">Services</Link>
-                        </li>
-                        {/* <li>
-                            <Link to={"/users"} className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">User</Link>
-                        </li> */}
-                    </ul>
+        <nav className="bg-white shadow-md  w-full">
+            <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+                <Link to="/" className="text-2xl font-bold text-blue-600">MyCompany</Link>
+                <div className="flex items-center space-x-6">
+                    <Link to="/" className="text-gray-700 hover:text-blue-600 transition">Home</Link>
+                    <Link to="/service" className="text-gray-700 hover:text-blue-600 transition">Services</Link>
+                    {isloggedin && <Link to="/employees" className="text-gray-700 hover:text-blue-600 transition">Employees</Link>}
+                    {isloggedin ? (
+                        <button onClick={handleClick} className="bg-red-500 text-white px-4 py-1.5 rounded hover:bg-red-600">Logout</button>
+                    ) : (
+                        <button onClick={() => navigate("/login")} className="bg-blue-500 text-white px-4 py-1.5 rounded hover:bg-blue-600">Login</button>
+                    )}
                 </div>
             </div>
         </nav>
+
 
 
     )

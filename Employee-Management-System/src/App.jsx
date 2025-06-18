@@ -5,6 +5,7 @@ import HeaderMain from "./components/HeaderMain"
 import Login from "./page/login"
 import { ToastContainer } from "react-toastify"
 import { useEffect, useState } from "react"
+import Employees from "./page/Employees"
 
 const App = () => {
     const [isloggedin,setIsLogedin] = useState(false)
@@ -17,11 +18,12 @@ const App = () => {
     
     return (
         <BrowserRouter>
-        <HeaderMain/>
+        <HeaderMain isloggedin={isloggedin} setIsLogedin={setIsLogedin}/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/service" element={<Service/>}/>
                 <Route path="/login" element={<Login setIsLogedin={setIsLogedin}/>}/>
+                <Route path="/employees" element={<Employees/>}/>
             </Routes>
             <ToastContainer />
         </BrowserRouter>
