@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 const Home = () => {
   return (
     <div>
-      {/* Hero Section */}
+      
       <section className="bg-blue-50 py-28 px-4">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="container mx-auto text-center">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Welcome to Flowbite</h1>
           <p className="text-gray-700 text-lg mb-8">
             Simplify your employee management with our intuitive platform.
@@ -18,9 +18,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose Us?</h2>
           <div className="grid gap-8 md:grid-cols-3">
             {[

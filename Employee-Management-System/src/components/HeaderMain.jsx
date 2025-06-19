@@ -16,7 +16,7 @@ const HeaderMain = ({ isloggedin, setIsLogedin }) => {
 
   return (
     <nav className="bg-white shadow-md fixed z-50 w-full">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
   
         <Link to="/" className="text-2xl font-bold text-blue-600" onClick={() => setMenuOpen(false)}>
           MyCompany

@@ -11,6 +11,14 @@ const Employees = () => {
         SetEmployees(employeeDetails)
     },[])
     console.log(employees);
+
+    const onDelete = (id) => {
+        const updatedList = employees.filter(emp => emp.id !== id);
+        SetEmployees(updatedList);
+        localStorage.setItem("employees", JSON.stringify(updatedList));
+    }
+
+    
     
     return (
         <div className="py-24">
@@ -31,7 +39,7 @@ const Employees = () => {
                     </button>
                 </div>
                     <div className="py-10">
-                        <EmployeeTable employees={employees}/>
+                        {employees.length > 0 ? <EmployeeTable employees={employees} onDelete={onDelete} /> : <h1 className="text-center text-3xl py-10 font-semibold">No Data Found</h1>}
                     </div>
             </div>
         </div>
