@@ -5,7 +5,8 @@ const ProtectedRouter = ({Component}) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        let loginStatus = JSON.parse(localStorage.getItem("isloggedin")) || []
+        let loginStatus = JSON.parse(localStorage.getItem("isloggedin")) || false
+        console.log(loginStatus);
         if (!loginStatus) {
             navigate("/login")
         }

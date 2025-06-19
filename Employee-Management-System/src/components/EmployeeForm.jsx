@@ -36,7 +36,7 @@ const EmployeeForm = () => {
                         value={employee.name} />
                 </div>
                 <div>
-                    <label htmlFor="salary" className="input-label" >Last name</label>
+                    <label htmlFor="salary" className="input-label" >Salary</label>
                     <input type="text" id="salary" className="input-control" placeholder="Doe" required onChange={handleChange}
                         value={employee.salary} />
                 </div>

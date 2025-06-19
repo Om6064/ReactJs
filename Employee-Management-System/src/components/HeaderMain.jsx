@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { toast } from "react-toastify"
 
 const HeaderMain = ({ isloggedin, setIsLogedin }) => {
   const navigate = useNavigate()
+  const {pathname} = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleClick = () => {
@@ -34,10 +35,10 @@ const HeaderMain = ({ isloggedin, setIsLogedin }) => {
 
       
         <div className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="text-gray-700 hover:text-blue-600 transition">Home</Link>
-          <Link to="/service" className="text-gray-700 hover:text-blue-600 transition">Services</Link>
+          <Link to="/" className={`${pathname == "/" ? "text-blue-600" :"text-gray-700" }  transition`}>Home</Link>
+          <Link to="/service" className={`${pathname == "/service" ? "text-blue-600" :"text-gray-700" }  transition`}>Services</Link>
           {isloggedin && (
-            <Link to="/employees" className="text-gray-700 hover:text-blue-600 transition">Employees</Link>
+            <Link to="/employees" className={`${pathname == "/employees" ? "text-blue-600" :"text-gray-700" }  transition`}>Employees</Link>
           )}
           {isloggedin ? (
             <button
