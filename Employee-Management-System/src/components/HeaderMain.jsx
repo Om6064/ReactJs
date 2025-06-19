@@ -17,12 +17,12 @@ const HeaderMain = ({ isloggedin, setIsLogedin }) => {
   return (
     <nav className="bg-white shadow-md fixed z-50 w-full">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo */}
+  
         <Link to="/" className="text-2xl font-bold text-blue-600" onClick={() => setMenuOpen(false)}>
           MyCompany
         </Link>
 
-        {/* Hamburger Icon (Mobile) */}
+    
         <div className="md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -32,7 +32,7 @@ const HeaderMain = ({ isloggedin, setIsLogedin }) => {
           </button>
         </div>
 
-        {/* Desktop Menu */}
+      
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/" className="text-gray-700 hover:text-blue-600 transition">Home</Link>
           <Link to="/service" className="text-gray-700 hover:text-blue-600 transition">Services</Link>
@@ -57,7 +57,7 @@ const HeaderMain = ({ isloggedin, setIsLogedin }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      
       {menuOpen && (
         <div className="md:hidden px-4 pb-4 space-y-3 bg-white shadow-md">
           <Link to="/" onClick={() => setMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Home</Link>

@@ -23,6 +23,11 @@ const Login = ({ setIsLogedin }) => {
         } else {
             toast.error("Email Or Password Should Be Match")
         }
+        setInput({
+            email: "",
+            password: ""
+        })
+
     }
 
     return (
