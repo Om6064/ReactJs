@@ -9,6 +9,7 @@ import 'remixicon/fonts/remixicon.css'
 import ProtectedRouter from "./components/ProtectedRouter"
 import Employees from "./page/Employees"
 import AddEmployee from "./page/AddEmployee"
+import EditEmployee from "./page/EditEmployee"
 
 const App = () => {
     const [isloggedin, setIsLogedin] = useState(false)
@@ -27,8 +28,9 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/service" element={<Service />} />
                 <Route path="/login" element={<Login setIsLogedin={setIsLogedin} />} />
-                <Route path="/employees" element={<ProtectedRouter isloggedin={isloggedin} Component={Employees} />} />
-                <Route path="/add-employee" element={<ProtectedRouter isloggedin={isloggedin} Component={AddEmployee} />} />
+                <Route path="/employees" element={<ProtectedRouter Component={Employees} />} />
+                <Route path="/add-employee" element={<ProtectedRouter Component={AddEmployee} />} />
+                <Route path="/edit-employee/:id" element={<ProtectedRouter Component={EditEmployee} />} />
             </Routes>
             <ToastContainer />
         </BrowserRouter>
