@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const EmployeeTable = ({ employees, onDelete }) => {
+const EmployeeTable = ({ employees, onDelete, sortSalary, isAscending }) => {
     const getDepartment = (id) => {
         switch (id) {
             case 1: return "Designing";
@@ -11,6 +11,10 @@ const EmployeeTable = ({ employees, onDelete }) => {
         }
     };
 
+    const handleSalary = () => {
+        sortSalary()
+    }
+
     return (
         <div className="overflow-hidden bg-gray-900 text-gray-100 rounded-xl shadow-lg p-4">
             {employees && employees.length > 0 ? (
@@ -20,7 +24,17 @@ const EmployeeTable = ({ employees, onDelete }) => {
                             <tr>
                                 <th className="px-6 py-4 text-left text-sm font-bold text-gray-300 uppercase tracking-wider">#</th>
                                 <th className="px-6 py-4 text-left text-sm font-bold text-gray-300 uppercase tracking-wider">Employee Name</th>
-                                <th className="px-6 py-4 text-left text-sm font-bold text-gray-300 uppercase tracking-wider">Salary</th>
+                                <th
+                                    className="px-6 py-4 text-left text-sm font-bold text-gray-300 uppercase tracking-wider cursor-pointer"
+                                    onClick={handleSalary}
+                                >
+                                    Salary
+                                    {isAscending ? (
+                                        <i className="ri-arrow-down-s-line ml-2"></i>
+                                    ) : (
+                                        <i className="ri-arrow-up-s-line ml-2"></i>
+                                    )}
+                                </th>
                                 <th className="px-6 py-4 text-left text-sm font-bold text-gray-300 uppercase tracking-wider">Department</th>
                                 <th className="px-6 py-4 text-center text-sm font-bold text-gray-300 uppercase tracking-wider">Actions</th>
                             </tr>
