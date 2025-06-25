@@ -85,7 +85,7 @@ const Form = ({ addUser, editedUser }) => {
             } else {
                 toast.error("Please Update The User");
             }
-            
+
 
         } else {
             const updatedUsers = { ...text, id: Date.now() };
@@ -105,8 +105,10 @@ const Form = ({ addUser, editedUser }) => {
     };
 
     const handleChange = (e) => {
-        setText({ ...text, [e.target.id]: e.target.value })
-        setError({ ...error, [e.target.id]: "" })
+        const key = e.target.name || e.target.id;
+        setText({ ...text, [key]: e.target.value });
+        setError({ ...error, [key]: "" });
+
     };
     console.log(text);
 
@@ -168,7 +170,7 @@ const Form = ({ addUser, editedUser }) => {
                                 <label className="flex items-center">
                                     <input
                                         type="radio"
-                                        id="gender"
+                                        // id="gender"
                                         value="Male"
                                         onChange={handleChange}
                                         checked={text.gender === "Male"}
@@ -180,7 +182,7 @@ const Form = ({ addUser, editedUser }) => {
                                 <label className="flex items-center">
                                     <input
                                         type="radio"
-                                        id="gender"
+                                        // id="gender"
                                         value="Female"
                                         onChange={handleChange}
                                         checked={text.gender === "Female"}
