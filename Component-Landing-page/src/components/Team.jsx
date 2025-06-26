@@ -4,22 +4,22 @@ import Title from "./Title"
 const Team = () => {
     let arr = [
         {
-            img : "/public/img/person-m-1.webp",
+            img : "img/person-m-1.webp",
             name : "Daniel Mitchell",
             role : "Creative Director"
         },
         {
-            img : "/public/img/person-f-6.webp",
+            img : "img/person-f-6.webp",
             name : "Rebecca Taylor",
             role : "Lead Developer"
         },
         {
-            img : "/public/img/person-m-6.webp",
+            img : "img/person-m-6.webp",
             name : "Marcus Johnson",
             role : "UI/UX Designer"
         },
         {
-            img : "/public/img/person-f-3.webp",
+            img : "img/person-f-3.webp",
             name : "Jessica Parker",
             role : "Marketing Analyst"
         },

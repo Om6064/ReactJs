@@ -56,7 +56,7 @@ const TestimonialsMain = () => {
                                                 <i className="bi bi-star-fill color-yellow font-14" />
                                             </div>
                                             <div className="d-flex gap-2 ">
-                                                <img src="/public/img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
+                                                <img src="img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
                                                 <div className='d-flex flex-column justify-content-center'>
                                                     <p className='m-0 fw-bold'>Robert Johnson</p>
                                                     <h4 className='font-14 text-secondary'>Marketing Director</h4>
@@ -86,7 +86,7 @@ const TestimonialsMain = () => {
                                                 <i className="bi bi-star-fill color-yellow font-14" />
                                             </div>
                                             <div className="d-flex gap-2 ">
-                                                <img src="/public/img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
+                                                <img src="img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
                                                 <div className='d-flex flex-column justify-content-center'>
                                                     <p className='m-0 fw-bold'>Robert Johnson</p>
                                                     <h4 className='font-14 text-secondary'>Marketing Director</h4>
@@ -116,7 +116,7 @@ const TestimonialsMain = () => {
                                                 <i className="bi bi-star-fill color-yellow font-14" />
                                             </div>
                                             <div className="d-flex gap-2 ">
-                                                <img src="/public/img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
+                                                <img src="img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
                                                 <div className='d-flex flex-column justify-content-center'>
                                                     <p className='m-0 fw-bold'>Robert Johnson</p>
                                                     <h4 className='font-14 text-secondary'>Marketing Director</h4>
@@ -146,7 +146,7 @@ const TestimonialsMain = () => {
                                                 <i className="bi bi-star-fill color-yellow font-14" />
                                             </div>
                                             <div className="d-flex gap-2 ">
-                                                <img src="/public/img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
+                                                <img src="img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
                                                 <div className='d-flex flex-column justify-content-center'>
                                                     <p className='m-0 fw-bold'>Robert Johnson</p>
                                                     <h4 className='font-14 text-secondary'>Marketing Director</h4>
@@ -175,7 +175,7 @@ const TestimonialsMain = () => {
                                             <i className="bi bi-star-fill color-yellow font-14" />
                                         </div>
                                         <div className="d-flex gap-2 ">
-                                            <img src="/public/img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
+                                            <img src="img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
                                             <div className='d-flex flex-column justify-content-center'>
                                                 <p className='m-0 fw-bold'>Robert Johnson</p>
                                                 <h4 className='font-14 text-secondary'>Marketing Director</h4>
@@ -204,7 +204,7 @@ const TestimonialsMain = () => {
                                             <i className="bi bi-star-fill color-yellow font-14" />
                                         </div>
                                         <div className="d-flex gap-2 ">
-                                            <img src="/public/img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
+                                            <img src="img/person-f-3.webp" alt="Profile Image" height={55} width={55} className='rounded-circle' />
                                             <div className='d-flex flex-column justify-content-center'>
                                                 <p className='m-0 fw-bold'>Robert Johnson</p>
                                                 <h4 className='font-14 text-secondary'>Marketing Director</h4>

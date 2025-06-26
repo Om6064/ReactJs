@@ -2,7 +2,7 @@ const HeroRight1 = () => {
     return (
         <div>
             <div className="hero-image">
-                <img src="/public/img/illustration-16.webp" alt="Business Growth" className="img-fluid hover-img" loading="lazy" />
+                <img src="img/illustration-16.webp" alt="Business Growth" className="img-fluid hover-img" loading="lazy" />
             </div>
         </div>
 
