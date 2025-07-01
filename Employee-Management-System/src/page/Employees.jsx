@@ -32,7 +32,7 @@ const Employees = () => {
     })
 
     const sortSalary = () => {
-        const sorted = [...employees].sort((a, b) => {
+        const sorted = EmployeeByName.sort((a, b) => { // i made copy of employees array so its dont change orignal array
             return isAscending
                 ? Number(a.salary) - Number(b.salary)
                 : Number(b.salary) - Number(a.salary);

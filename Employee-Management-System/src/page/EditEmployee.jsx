@@ -26,7 +26,7 @@ const EditEmployee = () => {
             }
             navigate("/employees");
         }
-    }, [id, navigate]);
+    }, [id]);
 
     const handleChange = (e) => {
         setEmployee({ ...employee, [e.target.id]: e.target.value });
