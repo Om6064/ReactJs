@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
-import counterReducer from "./feature/couter/counterSlice"
+import studentReduser from "./feature/student/studentSlice"
+
 
 
 const store = configureStore({
     reducer: {
-        counterReducer
+        student : studentReduser
     },
 })
 
