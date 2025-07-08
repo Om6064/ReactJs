@@ -1,35 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const studentSlice = createSlice(
     {
         name: "students",
         initialState: {
-            list:[
-                {name : "aryan", age : 19,course:"fsd"}
-            ]
+            list: []
         },
-        reducers:{
-            // increment(state,action){
-            //     state.state =  state.state+1;
-            // },
-            // decrement(state,action){
-            //     state.state =  state.state-1;
-            // },
-            // reset(state,action){
-            //      state.state = 0;
-            // }
-            addStudents: (state,action) => {
-
+        reducers: {
+            addStudents: (state, action) => {
+                state.list.push({ id: nanoid(), ...action.payload })
             },
-            removeStudents: (state,action) => {
-
+            removeStudents: (state, action) => {
+                state.list = state.list.filter((stu) => stu.id !== action.payload);
             },
-            updateStudents:(state,action) => {
-
-            } 
+            updateStudents: (state, action) => {
+                const index = state.list.findIndex((stu) => stu.id === action.payload.id);
+                if (index !== -1) {
+                    state.list[index] = action.payload;
+                }
+            }
         }
     }
 )
-export const {addStudents,removeStudents,updateStudents} = studentSlice.actions;
+export const { addStudents, removeStudents, updateStudents } = studentSlice.actions;
 export default studentSlice.reducer
 console.log(studentSlice);
