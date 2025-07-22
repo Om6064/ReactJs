@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Aryan",
+            "age": 20
+        },
+        {
+            "id": "2",
+            "name": "om",
+            "age": 20
+        },
+        {
+            "id": "3",
+            "name": "Kalu",
+            "age": 20
+        }
+    ],
+    "post": [
+        {
+            "id": "123",
+            "url": "ergtrtht"
+        }
+    ]
+}
