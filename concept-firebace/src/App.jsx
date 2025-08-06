@@ -1,21 +1,16 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth"
-import { app } from "./config/firbase";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Signup from "./pages/Signup"
+import Signin from "./pages/Signin"
 
 const App = () => {
-    const auth = getAuth(app);
-
-    const signUpUser = async () => {
-        try{
-            const res = await createUserWithEmailAndPassword(auth, "aryan@gmail.com", "123456");
-            console.log(res);
-        }catch(error){
-            console.log("error");
-        }
-    };
-
     return (
-        <div onClick={signUpUser}>Button</div>
-    );
-};
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Signup/>}/>
+                <Route path="/signin" element={<Signin/>}/>
+            </Routes>
+        </BrowserRouter>
+    )
+}
 
-export default App;
+export default App
