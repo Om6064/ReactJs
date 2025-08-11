@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from "firebase/firestore"
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { db } from "./config/firebase"
 
@@ -7,6 +7,7 @@ const App = () => {
         name: "", author: "", isBn: ""
     })
     const [books, setBooks] = useState([])
+    const [editIdx, setEditIdx] = useState(null)
     const handlechange = (e) => {
         setInput({ ...input, [e.target.id]: e.target.value })
     }
@@ -36,6 +37,24 @@ const App = () => {
         setBooks(bookarr)
 
     }
+    const handleDelete = async (id) => {
+        try {
+            await deleteDoc(doc(db, "Books", id))
+            printData()
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    const handleUpdate = async () => {
+        try {
+            await updateDoc(doc(db, "Books", editIdx), input)
+            printData()
+            setEditIdx(null) 
+            setInput({ name: "", author: "", isBn: "" }) 
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     useEffect(() => {
         printData()
@@ -56,7 +75,7 @@ const App = () => {
             <input type="number" id="isBn" value={input.isBn} onChange={handlechange} />
             <br />
             <br />
-            <button onClick={fetchData}>Add Book</button>
+            <button onClick={editIdx ? handleUpdate : fetchData}>{editIdx ? "EditBook" : "Add Book"}</button>
 
             {
                 books.map((book) => {
@@ -64,10 +83,17 @@ const App = () => {
                         <h3>{book.name}</h3>
                         <p>{book.author}</p>
                         <p>{book.isBn}</p>
+                        <button onClick={() => handleDelete(book.id)}>Delete</button>
+                        <button onClick={() => {
+                            setEditIdx(book.id);
+                            const { id, ...data } = book
+                            setInput(data)
+                            console.log(id, data)
+                        }}>edit</button>
                     </div>
                 })
             }
-        </div>
+        </div >
     )
 }
 
